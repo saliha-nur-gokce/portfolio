@@ -12,4 +12,4 @@ This project aims to explore the relationship between the development level of c
 
 ![Project Diagram 2](images/DS/thirdCluster.png)
 
-[Click here to read more about the project](./project-details.md#data-science-final-project-details)
+#[Click here to read more about the project](./project-details.md#data-science-final-project-details)

@@ -12,3 +12,6 @@ This project aims to explore the relationship between the development level of c
 ![Project Diagram 1](images/DS/secondCluster.png)
 
 ![Project Diagram 2](images/DS/thirdCluster.png)
+
+[View Project Details](project-details.md)
+

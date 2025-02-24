@@ -28,8 +28,8 @@ The models were trained using data from **1970 Q1 to 2012 Q4** and tested from *
 Our findings indicate that **Gradient Boosting slightly outperforms Random Forest**, and both models significantly outperform the traditional **Autoregressive Model (AR(4))** in predictive accuracy.  
 
 <p align="center">
-  <img src="images/ML/Gradient Boosting_feature_importance.png" width="45%" />
-  <img src="images/ML/Random Forest_feature_importance.png" width="45%" />
+  <img src="images/ML/Gradient Boosting_feature_importance.png" width="50%" />
+  <img src="images/ML/Random Forest_feature_importance.png" width="50%" />
 </p>
 
 ![Project Diagram 3](images/ML/forecasted_vs_actual_multiple.png)

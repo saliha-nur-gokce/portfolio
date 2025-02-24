@@ -33,3 +33,5 @@ Our findings indicate that **Gradient Boosting slightly outperforms Random Fores
 </p>
 
 ![Project Diagram 3](images/ML/forecasted_vs_actual_multiple.png)
+
+[View Project Paper](https://drive.google.com/file/d/1decAKDOtMaB4cRprLFqndsPNoqnHslRR/view?usp=sharing)

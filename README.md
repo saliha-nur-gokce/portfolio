@@ -27,85 +27,40 @@ The models were trained using data from **1970 Q1 to 2012 Q4** and tested from *
 
 Our findings indicate that **Gradient Boosting slightly outperforms Random Forest**, and both models significantly outperform the traditional **Autoregressive Model (AR(4))** in predictive accuracy.  
 
-<div class="img-container">
-  <img src="images/ML/Gradient Boosting_feature_importance.png" class="img-popup" onclick="showPopup(this.src)">
-  <img src="images/ML/Random Forest_feature_importance.png" class="img-popup" onclick="showPopup(this.src)">
-</div>
-
-<div id="popup" class="popup-container" onclick="hidePopup()">
-  <img id="popup-img" class="popup-content">
-</div>
-
-<script>
-  function showPopup(src) {
-    document.getElementById("popup").style.display = "block";
-    document.getElementById("popup-img").src = src;
-  }
-  function hidePopup() {
-    document.getElementById("popup").style.display = "none";
-  }
-</script>
-
 <style>
-  .img-popup {
-    cursor: pointer;
-    transition: 0.3s;
-    width: 800px;
-  }
-  .img-popup:hover {
-    opacity: 0.7;
-  }
-  .popup-container {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    padding-top: 50px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.8);
-  }
-  .popup-content {
-    margin: auto;
-    display: block;
-    max-width: 90%;
-    max-height: 90%;
-  }
-</style>
-
-<img src="images/ML/forecasted_vs_actual_multiple.png" class="img-popup" width="300" onclick="showPopup(this.src)">
-<div id="popup" class="popup-container" onclick="hidePopup()">
-  <img id="popup-img" class="popup-content">
-</div>
-
-<script>
-  function showPopup(src) {
-    document.getElementById("popup").style.display = "block";
-    document.getElementById("popup-img").src = src;
-  }
-  function hidePopup() {
-    document.getElementById("popup").style.display = "none";
-  }
-</script>
-
-<style>
+  /* İlk iki görselin düzgün yan yana görünmesi */
   .img-container {
     display: flex; /* Yan yana hizalama */
     justify-content: center;
     gap: 10px; /* İki resim arasındaki boşluk */
     flex-wrap: wrap; /* Küçük ekranlarda resimlerin taşmasını önler */
   }
-  .img-popup {
+
+  /* İlk iki küçük görsel için */
+  .img-popup-small {
     cursor: pointer;
     transition: 0.3s;
     width: 45%; /* Geniş ekranlarda %45 genişlik */
-    max-width: 300px; /* Çok büyük ekranlarda bile en fazla 400px olacak */
+    max-width: 400px; /* Çok büyük ekranlarda bile en fazla 400px olacak */
     height: auto;
   }
-  .img-popup:hover {
+  .img-popup-small:hover {
     opacity: 0.7;
   }
+
+  /* Son büyük görsel için */
+  .large-img-popup {
+    cursor: pointer;
+    transition: 0.3s;
+    width: 800px; /* Büyük görselin genişliği */
+    display: block;
+    margin: 20px auto; /* Ortalamak için */
+  }
+  .large-img-popup:hover {
+    opacity: 0.7;
+  }
+
+  /* Pop-up için */
   .popup-container {
     display: none;
     position: fixed;
@@ -124,17 +79,44 @@ Our findings indicate that **Gradient Boosting slightly outperforms Random Fores
     max-height: 90%;
   }
 
-  /* Küçük ekranlar için */
+  /* Küçük ekranlar için (Mobil Uyumluluk) */
   @media (max-width: 768px) {
     .img-container {
       flex-direction: column; /* Küçük ekranlarda resimleri alt alta koy */
       align-items: center;
     }
-    .img-popup {
+    .img-popup-small {
       width: 80%; /* Küçük ekranlarda genişliği artır */
+    }
+    .large-img-popup {
+      width: 90%; /* Küçük ekranlarda büyük görselin genişliği */
     }
   }
 </style>
+
+<!-- İlk iki görsel (Yan Yana) -->
+<div class="img-container">
+  <img src="images/ML/Gradient Boosting_feature_importance.png" class="img-popup-small" onclick="showPopup(this.src)">
+  <img src="images/ML/Random Forest_feature_importance.png" class="img-popup-small" onclick="showPopup(this.src)">
+</div>
+
+<!-- Büyük Görsel (Alt Satırda) -->
+<img src="images/ML/forecasted_vs_actual_multiple.png" class="large-img-popup" onclick="showPopup(this.src)">
+
+<!-- Pop-up Açılır Görsel -->
+<div id="popup" class="popup-container" onclick="hidePopup()">
+  <img id="popup-img" class="popup-content">
+</div>
+
+<script>
+  function showPopup(src) {
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("popup-img").src = src;
+  }
+  function hidePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
 
 
 [View Project Paper](https://drive.google.com/file/d/1decAKDOtMaB4cRprLFqndsPNoqnHslRR/view?usp=sharing)

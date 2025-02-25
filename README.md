@@ -27,15 +27,58 @@ The models were trained using data from **1970 Q1 to 2012 Q4** and tested from *
 
 Our findings indicate that **Gradient Boosting slightly outperforms Random Forest**, and both models significantly outperform the traditional **Autoregressive Model (AR(4))** in predictive accuracy.  
 
+<style>
+  .img-popup {
+    cursor: pointer;
+    transition: 0.3s;
+    width: 400px; /* Burada küçük resmi büyütebilirsin */
+  }
+  .img-popup:hover {
+    opacity: 0.7;
+  }
+  .popup-container {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+  }
+  .popup-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+  }
+</style>
+
 <p align="center">
-  <img src="images/ML/Gradient Boosting_feature_importance.png" width="45%" />
-  <img src="images/ML/Random Forest_feature_importance.png" width="45%" />
+  <img src="images/ML/Gradient Boosting_feature_importance.png" class="img-popup" width="400" onclick="showPopup(this.src)">
+  <img src="images/ML/Random Forest_feature_importance.png" class="img-popup" width="400" onclick="showPopup(this.src)">
 </p>
+
+<div id="popup" class="popup-container" onclick="hidePopup()">
+  <img id="popup-img" class="popup-content">
+</div>
+
+<script>
+  function showPopup(src) {
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("popup-img").src = src;
+  }
+  function hidePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
 
 <style>
   .img-popup {
     cursor: pointer;
     transition: 0.3s;
+    width: 400px;
   }
   .img-popup:hover {
     opacity: 0.7;
@@ -74,6 +117,5 @@ Our findings indicate that **Gradient Boosting slightly outperforms Random Fores
   }
 </script>
 
-![Project Diagram 3](images/ML/forecasted_vs_actual_multiple.png)
 
 [View Project Paper](https://drive.google.com/file/d/1decAKDOtMaB4cRprLFqndsPNoqnHslRR/view?usp=sharing)

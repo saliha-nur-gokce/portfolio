@@ -27,53 +27,6 @@ The models were trained using data from **1970 Q1 to 2012 Q4** and tested from *
 
 Our findings indicate that **Gradient Boosting slightly outperforms Random Forest**, and both models significantly outperform the traditional **Autoregressive Model (AR(4))** in predictive accuracy.  
 
-<style>
-  .img-container {
-    display: flex; /* Yan yana hizalama */
-    justify-content: center;
-    gap: 10px; /* İki resim arasındaki boşluk */
-    flex-wrap: wrap; /* Küçük ekranlarda resimlerin taşmasını önler */
-  }
-  .img-popup {
-    cursor: pointer;
-    transition: 0.3s;
-    width: 45%; /* Geniş ekranlarda %45 genişlik */
-    max-width: 200px; /* Çok büyük ekranlarda bile en fazla 400px olacak */
-    height: auto;
-  }
-  .img-popup:hover {
-    opacity: 0.7;
-  }
-  .popup-container {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    padding-top: 50px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.8);
-  }
-  .popup-content {
-    margin: auto;
-    display: block;
-    max-width: 90%;
-    max-height: 90%;
-  }
-
-  /* Küçük ekranlar için */
-  @media (max-width: 768px) {
-    .img-container {
-      flex-direction: column; /* Küçük ekranlarda resimleri alt alta koy */
-      align-items: center;
-    }
-    .img-popup {
-      width: 80%; /* Küçük ekranlarda genişliği artır */
-    }
-  }
-</style>
-
 <div class="img-container">
   <img src="images/ML/Gradient Boosting_feature_importance.png" class="img-popup" onclick="showPopup(this.src)">
   <img src="images/ML/Random Forest_feature_importance.png" class="img-popup" onclick="showPopup(this.src)">
@@ -135,6 +88,53 @@ Our findings indicate that **Gradient Boosting slightly outperforms Random Fores
     document.getElementById("popup").style.display = "none";
   }
 </script>
+
+<style>
+  .img-container {
+    display: flex; /* Yan yana hizalama */
+    justify-content: center;
+    gap: 10px; /* İki resim arasındaki boşluk */
+    flex-wrap: wrap; /* Küçük ekranlarda resimlerin taşmasını önler */
+  }
+  .img-popup {
+    cursor: pointer;
+    transition: 0.3s;
+    width: 45%; /* Geniş ekranlarda %45 genişlik */
+    max-width: 300px; /* Çok büyük ekranlarda bile en fazla 400px olacak */
+    height: auto;
+  }
+  .img-popup:hover {
+    opacity: 0.7;
+  }
+  .popup-container {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+  }
+  .popup-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+  }
+
+  /* Küçük ekranlar için */
+  @media (max-width: 768px) {
+    .img-container {
+      flex-direction: column; /* Küçük ekranlarda resimleri alt alta koy */
+      align-items: center;
+    }
+    .img-popup {
+      width: 80%; /* Küçük ekranlarda genişliği artır */
+    }
+  }
+</style>
 
 
 [View Project Paper](https://drive.google.com/file/d/1decAKDOtMaB4cRprLFqndsPNoqnHslRR/view?usp=sharing)

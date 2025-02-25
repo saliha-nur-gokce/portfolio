@@ -31,7 +31,6 @@ Our findings indicate that **Gradient Boosting slightly outperforms Random Fores
   .img-popup {
     cursor: pointer;
     transition: 0.3s;
-    width: 400px; /* Burada küçük resmi büyütebilirsin */
   }
   .img-popup:hover {
     opacity: 0.7;
@@ -78,7 +77,7 @@ Our findings indicate that **Gradient Boosting slightly outperforms Random Fores
   .img-popup {
     cursor: pointer;
     transition: 0.3s;
-    width: 400px;
+    width: 600px;
   }
   .img-popup:hover {
     opacity: 0.7;

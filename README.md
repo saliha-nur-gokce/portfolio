@@ -32,6 +32,48 @@ Our findings indicate that **Gradient Boosting slightly outperforms Random Fores
   <img src="images/ML/Random Forest_feature_importance.png" width="45%" />
 </p>
 
+<style>
+  .img-popup {
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .img-popup:hover {
+    opacity: 0.7;
+  }
+  .popup-container {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+  }
+  .popup-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+  }
+</style>
+
+<img src="images/ML/forecasted_vs_actual_multiple.png" class="img-popup" width="300" onclick="showPopup(this.src)">
+<div id="popup" class="popup-container" onclick="hidePopup()">
+  <img id="popup-img" class="popup-content">
+</div>
+
+<script>
+  function showPopup(src) {
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("popup-img").src = src;
+  }
+  function hidePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
+
 ![Project Diagram 3](images/ML/forecasted_vs_actual_multiple.png)
 
 [View Project Paper](https://drive.google.com/file/d/1decAKDOtMaB4cRprLFqndsPNoqnHslRR/view?usp=sharing)

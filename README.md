@@ -28,9 +28,15 @@ The models were trained using data from **1970 Q1 to 2012 Q4** and tested from *
 Our findings indicate that **Gradient Boosting slightly outperforms Random Forest**, and both models significantly outperform the traditional **Autoregressive Model (AR(4))** in predictive accuracy.  
 
 <style>
+  .img-container {
+    display: flex; /* Yan yana hizalama */
+    justify-content: center;
+    gap: 10px; /* İki resim arasındaki boşluk */
+  }
   .img-popup {
     cursor: pointer;
     transition: 0.3s;
+    width: 45%; /* İlk görünen resmin boyutu */
   }
   .img-popup:hover {
     opacity: 0.7;
@@ -54,10 +60,10 @@ Our findings indicate that **Gradient Boosting slightly outperforms Random Fores
   }
 </style>
 
-<p align="center">
-  <img src="images/ML/Gradient Boosting_feature_importance.png" class="img-popup" width="400" onclick="showPopup(this.src)">
-  <img src="images/ML/Random Forest_feature_importance.png" class="img-popup" width="400" onclick="showPopup(this.src)">
-</p>
+<div class="img-container">
+  <img src="images/ML/Gradient Boosting_feature_importance.png" class="img-popup" onclick="showPopup(this.src)">
+  <img src="images/ML/Random Forest_feature_importance.png" class="img-popup" onclick="showPopup(this.src)">
+</div>
 
 <div id="popup" class="popup-container" onclick="hidePopup()">
   <img id="popup-img" class="popup-content">
@@ -73,11 +79,12 @@ Our findings indicate that **Gradient Boosting slightly outperforms Random Fores
   }
 </script>
 
+
 <style>
   .img-popup {
     cursor: pointer;
     transition: 0.3s;
-    width: 600px;
+    width: 800px;
   }
   .img-popup:hover {
     opacity: 0.7;

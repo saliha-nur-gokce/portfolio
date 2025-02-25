@@ -32,11 +32,14 @@ Our findings indicate that **Gradient Boosting slightly outperforms Random Fores
     display: flex; /* Yan yana hizalama */
     justify-content: center;
     gap: 10px; /* İki resim arasındaki boşluk */
+    flex-wrap: wrap; /* Küçük ekranlarda resimlerin taşmasını önler */
   }
   .img-popup {
     cursor: pointer;
     transition: 0.3s;
-    width: 45%; /* İlk görünen resmin boyutu */
+    width: 45%; /* Geniş ekranlarda %45 genişlik */
+    max-width: 400px; /* Çok büyük ekranlarda bile en fazla 400px olacak */
+    height: auto;
   }
   .img-popup:hover {
     opacity: 0.7;
@@ -58,6 +61,17 @@ Our findings indicate that **Gradient Boosting slightly outperforms Random Fores
     max-width: 90%;
     max-height: 90%;
   }
+
+  /* Küçük ekranlar için */
+  @media (max-width: 768px) {
+    .img-container {
+      flex-direction: column; /* Küçük ekranlarda resimleri alt alta koy */
+      align-items: center;
+    }
+    .img-popup {
+      width: 80%; /* Küçük ekranlarda genişliği artır */
+    }
+  }
 </style>
 
 <div class="img-container">
@@ -78,6 +92,7 @@ Our findings indicate that **Gradient Boosting slightly outperforms Random Fores
     document.getElementById("popup").style.display = "none";
   }
 </script>
+
 
 
 <style>

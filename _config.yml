@@ -1,4 +1,7 @@
 title: Saliha Nur Gökçe
 logo: images/IMG_3342.jpeg
-#description: 
+social_links:
+  linkedin: "https://www.linkedin.com/in/saliha-nur-gokce/"
+  github: "https://github.com/saliha-nur-gokce"
+  email: "mailto:s.nurgkce@gmail.com"
 theme: jekyll-theme-minimal

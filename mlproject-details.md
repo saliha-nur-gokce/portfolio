@@ -122,7 +122,7 @@ Despite its successes, the project also revealed limitations in predictive power
     cursor: pointer;
     transition: 0.3s;
     width: 45%;
-    max-width: 400px;
+    max-width: 800px;
     height: auto;
   }
   .img-popup:hover {

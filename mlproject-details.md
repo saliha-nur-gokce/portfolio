@@ -16,8 +16,8 @@ To further refine feature selection, we used **Random Forest** and **Gradient Bo
 
 <!-- Feature Importance Görselleri (Yan Yana) -->
 <div class="img-container">
-  <img src="images/ML/RandomForest_feature_importance.png" class="img-popup" onclick="showPopup(this.src)">
-  <img src="images/ML/GradientBoosting_feature_importance.png" class="img-popup" onclick="showPopup(this.src)">
+  <img src="images/ML/Random Forest_feature_importance.png" class="img-popup" onclick="showPopup(this.src)">
+  <img src="images/ML/Gradient Boosting_feature_importance.png" class="img-popup" onclick="showPopup(this.src)">
 </div>
 
 These visualizations highlight the variables that contribute most to GDP growth forecasting, forming the basis for our predictive models.

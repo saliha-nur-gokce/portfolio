@@ -1,6 +1,18 @@
 # Senior Economics Student 
 I'm a senior economics student at Boğaziçi University, with a strong interest in data analytics, automation, and machine learning applications. I enjoy working with large datasets, uncovering patterns, and building efficient workflows with Python, R, and SQL. I’m currently exploring machine learning applications and improving my skills in finance-related data analysis. Please view my [CV](https://drive.google.com/file/d/1JUE2VNnbzI-5QYHhC7LATKQP0N-28b1q/view?usp=sharing), check out my projects, and feel free to connect with me at [s.nurgkce@gmail.com](mailto:s.nurgkce@gmail.com)! 🚀
 
+/* ### 🌐 Connect with me: */
+
+<p align="left">
+  <a href="https://www.linkedin.com/in/saliha-nur-gokce/" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="40" height="40">
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/saliha-nur-gokce" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width="40" height="40">
+  </a>
+</p>
+
 ## Education
 Economics, Boğaziçi University
 

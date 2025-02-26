@@ -14,11 +14,11 @@ To further refine feature selection, we used **Random Forest** and **Gradient Bo
 
 - **Random Forest Feature Importance:**
   
-![RF Feature Selection](images/ML/Random Forest_feature_importance.png)
+![RF Feature Selection](images/ML/RandomForest_feature_importance.png)
 
 - **Gradient Boosting Feature Importance:**
 
-![GB Feature Selection](images/ML/Gradient Boosting_feature_importance.png)
+![GB Feature Selection](images/ML/GradientBoosting_feature_importance.png)
 
 These visualizations highlight the variables that contribute most to GDP growth forecasting, forming the basis for our predictive models.
 

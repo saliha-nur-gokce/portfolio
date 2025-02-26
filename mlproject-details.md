@@ -1,4 +1,4 @@
-## Machine Learning Final Project Details
+# **Machine Learning Final Project Details**
 
 This project analyzes the predictive power of **machine learning models** for forecasting **quarterly U.S. GDP growth**, comparing them with the traditional **Autoregressive (AR(4)) model**. Additionally, it examines the impact of key economic indicators on GDP growth, assessing their positive or negative influence. The dataset includes macroeconomic variables from the **Federal Reserve Economic Data (FRED)**, covering the period from **1970Q1 to 2020Q1**.
 
@@ -8,17 +8,17 @@ The dataset consists of **21 economic indicators**, including inflation, private
 
 To examine the relationships between these features, we computed the **correlation matrix**, which highlights the dependencies among macroeconomic variables. This helped us identify **redundant features** and refine our selection for model training.
 
-![Correlation Matrix](images/ML/correlation_matrix.png)
+<div class="img-container">
+  <img src="images/ML/correlation_matrix.png" class="img-popup" onclick="showPopup(this.src)">
+</div>
 
 To further refine feature selection, we used **Random Forest** and **Gradient Boosting** feature importance rankings. These models identified the most influential predictors based on how much each variable reduces prediction error.
 
-- **Random Forest Feature Importance:**
-  
-![RF Feature Selection](images/ML/RandomForest_feature_importance.png)
-
-- **Gradient Boosting Feature Importance:**
-
-![GB Feature Selection](images/ML/GradientBoosting_feature_importance.png)
+<!-- Feature Importance Görselleri (Yan Yana) -->
+<div class="img-container">
+  <img src="images/ML/RandomForest_feature_importance.png" class="img-popup" onclick="showPopup(this.src)">
+  <img src="images/ML/GradientBoosting_feature_importance.png" class="img-popup" onclick="showPopup(this.src)">
+</div>
 
 These visualizations highlight the variables that contribute most to GDP growth forecasting, forming the basis for our predictive models.
 
@@ -49,9 +49,12 @@ To understand the impact of features on GDP growth, we used **SHAP (SHapley Addi
 - **Unemployment rate and public debt** have **negative** contributions to GDP growth.
 - **Gradient Boosting provided the most stable and interpretable feature importance rankings.**
 
-![SHAP Analysis for RF](images/ML/shap_summary_dot_RandomForest.png)
+<!-- SHAP Görselleri (Yan Yana) -->
+<div class="img-container">
+  <img src="images/ML/shap_summary_dot_RandomForest.png" class="img-popup" onclick="showPopup(this.src)">
+  <img src="images/ML/shap_summary_dot_GradientBoosting.png" class="img-popup" onclick="showPopup(this.src)">
+</div>
 
-![SHAP Analysis for GB](images/ML/shap_summary_dot_GradientBoosting.png)
 
 ## **Forecasting and Visualizations**
 
@@ -61,16 +64,86 @@ The forecast comparison shows that:
 - **RF and GB track GDP movements more closely, especially during economic shocks.**
 - **Density plots highlight how key features behave during periods of high and low GDP growth.**
 
-![Forecasted vs Actual](images/ML/forecasted_vs_actual_multiple.png)
+<!-- Forecasted vs Actual -->
+<div class="img-container">
+  <img src="images/ML/forecasted_vs_actual_multiple.png" class="img-popup" onclick="showPopup(this.src)">
+</div>
+
+
+Density graphs were obtained for the common best 5 features selected by the RF and GB models on the basis of good and bad years. The distinction between good and bad years was made by determining the threshold of 0.69%, which is the average quarterly growth value between 1970Q1-2019Q4. Quarters above this threshold value were selected as good growth, and quarters below this threshold value were selected as bad growth periods.
+
+<div class="img-container">
+  <img src="images/ML/kde_subplots_common_top6.png" class="img-popup" onclick="showPopup(this.src)">
+</div>
+
 ## **Limitations and Future Work**
 
-- The models capture general GDP trends but **do not provide highly precise forecasts**.
-- Incorporating **alternative data sources (e.g., business surveys, sentiment analysis)** could improve accuracy.
-- **Deep learning techniques (such as neural networks)** may offer further improvements.
-- **Time-series cross-validation methods** could enhance model reliability.
+While the models provide valuable insights, several limitations should be considered:
+
+- **Prediction accuracy remains moderate**—models capture overall trends but struggle with precise short-term fluctuations.
+- **Alternative data sources,** such as business sentiment surveys or global financial indicators, could enhance prediction accuracy.
+- **Neural networks and deep learning** approaches could be tested to determine whether they offer further improvements.
+- **Expanding the feature set** to include geopolitical factors or trade dynamics may refine predictions.
+- **Time-series cross-validation** could improve the robustness of future models by ensuring better generalization across different economic conditions.
 
 ## **Conclusion**
 
-This project demonstrates that **machine learning models significantly outperform traditional econometric methods** in GDP forecasting. The use of **feature selection, SHAP analysis, and density plots** provides deeper insights into economic drivers, making machine learning a valuable tool for macroeconomic analysis.
+This project demonstrates that **machine learning models significantly outperform traditional econometric methods** in GDP forecasting. **Gradient Boosting consistently produced the most accurate results**, highlighting its ability to capture non-linear relationships in economic data. 
+
+Additionally, **SHAP analysis and KDE visualizations** provided deeper interpretability, offering valuable insights into how economic factors influence GDP growth. While traditional econometric models like AR(4) remain useful for capturing long-term trends, **machine learning models offer a more adaptive approach**, making them better suited for analyzing complex economic systems.
+
+Despite its successes, the project also revealed limitations in predictive power, emphasizing the need for **further improvements in data selection, alternative modeling techniques, and validation strategies**. Future research should explore more advanced machine learning architectures and richer datasets to enhance GDP forecasting accuracy.
 
 [View Project Paper for More Detail](https://drive.google.com/file/d/1decAKDOtMaB4cRprLFqndsPNoqnHslRR/view?usp=sharing)
+
+<!-- Büyük Açılır Görsel -->
+<div id="popup" class="popup-container" onclick="hidePopup()">
+  <img id="popup-img" class="popup-content">
+</div>
+
+<script>
+  function showPopup(src) {
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("popup-img").src = src;
+  }
+  function hidePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
+
+<style>
+  .img-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  .img-popup {
+    cursor: pointer;
+    transition: 0.3s;
+    width: 45%;
+    max-width: 400px;
+    height: auto;
+  }
+  .img-popup:hover {
+    opacity: 0.7;
+  }
+  .popup-container {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+  }
+  .popup-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+  }
+</style>
+

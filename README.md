@@ -129,4 +129,4 @@ Our findings indicate that **Gradient Boosting slightly outperforms Random Fores
 </script>
 
 
-[View Project Paper](https://drive.google.com/file/d/1decAKDOtMaB4cRprLFqndsPNoqnHslRR/view?usp=sharing)
+[View Project Details](mlproject-details.md)

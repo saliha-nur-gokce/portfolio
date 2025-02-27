@@ -115,6 +115,8 @@ Despite its successes, the project also revealed limitations in predictive power
 
 [View Project Paper for More Detail](https://drive.google.com/file/d/1decAKDOtMaB4cRprLFqndsPNoqnHslRR/view?usp=sharing)
 
+[View Project Codes](EC48E_FinalAssignment.ipynb)
+
 <div id="popup" onclick="hidePopup()" 
      style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
             background: rgba(0,0,0,0.8); justify-content: center; align-items: center;">

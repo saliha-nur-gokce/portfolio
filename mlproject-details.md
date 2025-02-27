@@ -8,15 +8,30 @@ The dataset consists of **21 economic indicators**, including inflation, private
 
 To examine the relationships between these features, we computed the **correlation matrix**, which highlights the dependencies among macroeconomic variables. This helped us identify **redundant features** and refine our selection for model training.
 
-<div class="img-container">
-  <img src="images/ML/correlation_matrix.png" class="img-popup-large" onclick="showPopup(this.src)">
+<div style="text-align: center; margin: 15px;">
+  <img src="images/ML/correlation_matrix.png" 
+       width="85%" 
+       onclick="showPopup(this.src)" 
+       style="cursor: pointer;">
 </div>
+
 
 To further refine feature selection, we used **Random Forest** and **Gradient Boosting** feature importance rankings. These models identified the most influential predictors based on how much each variable reduces prediction error.
 
-<div class="img-container">
-  <img src="images/ML/Random Forest_feature_importance.png" class="img-popup-small" onclick="showPopup(this.src)">
-  <img src="images/ML/Gradient Boosting_feature_importance.png" class="img-popup-small" onclick="showPopup(this.src)">
+<div style="text-align: center;">
+  <div style="display: inline-block; margin: 15px;">
+    <img src="images/ML/Random Forest_feature_importance.png" 
+         width="45%" 
+         onclick="showPopup(this.src)" 
+         style="cursor: pointer;">
+  </div>
+
+  <div style="display: inline-block; margin: 15px;">
+    <img src="images/ML/Gradient Boosting_feature_importance.png" 
+         width="45%" 
+         onclick="showPopup(this.src)" 
+         style="cursor: pointer;">
+  </div>
 </div>
 
 These visualizations highlight the variables that contribute most to GDP growth forecasting, forming the basis for our predictive models.
@@ -48,10 +63,22 @@ To understand the impact of features on GDP growth, we used **SHAP (SHapley Addi
 - **Unemployment rate and public debt** have **negative** contributions to GDP growth.
 - **Gradient Boosting provided the most stable and interpretable feature importance rankings.**
 
-<div class="img-container">
-  <img src="images/ML/shap_summary_dot_RandomForest.png" class="img-popup-small" onclick="showPopup(this.src)">
-  <img src="images/ML/shap_summary_dot_GradientBoosting.png" class="img-popup-small" onclick="showPopup(this.src)">
+<div style="text-align: center;">
+  <div style="display: inline-block; margin: 15px;">
+    <img src="images/ML/shap_summary_dot_RandomForest.png" 
+         width="45%" 
+         onclick="showPopup(this.src)" 
+         style="cursor: pointer;">
+  </div>
+
+  <div style="display: inline-block; margin: 15px;">
+    <img src="images/ML/shap_summary_dot_GradientBoosting.png" 
+         width="45%" 
+         onclick="showPopup(this.src)" 
+         style="cursor: pointer;">
+  </div>
 </div>
+
 
 ## **Forecasting and Visualizations**
 
@@ -61,14 +88,20 @@ The forecast comparison shows that:
 - **RF and GB track GDP movements more closely, especially during economic shocks.**
 - **Density plots highlight how key features behave during periods of high and low GDP growth.**
 
-<div class="img-container">
-  <img src="images/ML/forecasted_vs_actual_multiple.png" class="img-popup-large" onclick="showPopup(this.src)">
+<div style="text-align: center; margin: 15px;">
+  <img src="images/ML/forecasted_vs_actual_multiple.png" 
+       width="85%" 
+       onclick="showPopup(this.src)" 
+       style="cursor: pointer;">
 </div>
 
 Density graphs were obtained for the common best 5 features selected by the RF and GB models on the basis of good and bad years. The distinction between good and bad years was made by determining the threshold of 0.69%, which is the average quarterly growth value between 1970Q1-2019Q4. Quarters above this threshold value were selected as good growth, and quarters below this threshold value were selected as bad growth periods.
 
-<div class="img-container">
-  <img src="images/ML/kde_subplots_common_top6.png" class="img-popup-large" onclick="showPopup(this.src)">
+<div style="text-align: center; margin: 15px;">
+  <img src="images/ML/kde_subplots_common_top6.png" 
+       width="85%" 
+       onclick="showPopup(this.src)" 
+       style="cursor: pointer;">
 </div>
 
 ## **Limitations and Future Work**
@@ -90,3 +123,20 @@ Additionally, **SHAP analysis and KDE visualizations** provided deeper interpret
 Despite its successes, the project also revealed limitations in predictive power, emphasizing the need for **further improvements in data selection, alternative modeling techniques, and validation strategies**. Future research should explore more advanced machine learning architectures and richer datasets to enhance GDP forecasting accuracy.
 
 [View Project Paper for More Detail](https://drive.google.com/file/d/1decAKDOtMaB4cRprLFqndsPNoqnHslRR/view?usp=sharing)
+
+<div id="popup" onclick="hidePopup()" 
+     style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.8); justify-content: center; align-items: center;">
+  <img id="popup-img" style="max-width: 90%; max-height: 90%;">
+</div>
+
+<script>
+  function showPopup(src) {
+    document.getElementById("popup-img").src = src;
+    document.getElementById("popup").style.display = "flex";
+  }
+
+  function hidePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>

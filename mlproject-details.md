@@ -1,5 +1,3 @@
-<link rel="stylesheet" type="text/css" href="styles.css">
-
 # **Machine Learning Final Project Details**
 
 This project analyzes the predictive power of **machine learning models** for forecasting **quarterly U.S. GDP growth**, comparing them with the traditional **Autoregressive (AR(4)) model**. Additionally, it examines the impact of key economic indicators on GDP growth, assessing their positive or negative influence. The dataset includes macroeconomic variables from the **Federal Reserve Economic Data (FRED)**, covering the period from **1970Q1 to 2020Q1**.
@@ -92,53 +90,3 @@ Additionally, **SHAP analysis and KDE visualizations** provided deeper interpret
 Despite its successes, the project also revealed limitations in predictive power, emphasizing the need for **further improvements in data selection, alternative modeling techniques, and validation strategies**. Future research should explore more advanced machine learning architectures and richer datasets to enhance GDP forecasting accuracy.
 
 [View Project Paper for More Detail](https://drive.google.com/file/d/1decAKDOtMaB4cRprLFqndsPNoqnHslRR/view?usp=sharing)
-
-<style>
-  .img-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-  }
-
-  /* Yan yana olan görseller için (Feature Importance & SHAP) */
-  .img-popup-small {
-    cursor: pointer;
-    transition: 0.3s;
-    width: 60%; /* Daha büyük hale getirildi */
-    max-width: 600px; /* Büyük ekranlarda daha geniş */
-    height: auto;
-  }
-
-  /* Tek başına olan büyük görseller için (Correlation Matrix, Forecast, KDE) */
-  .img-popup-large {
-    cursor: pointer;
-    transition: 0.3s;
-    width: 85%; /* Daha fazla genişlik verildi */
-    max-width: 900px;
-    height: auto;
-  }
-
-  .img-popup-small:hover, .img-popup-large:hover {
-    opacity: 0.7;
-  }
-
-  /* Pop-up açıldığında tam ekran görüntü */
-  .popup-container {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    padding-top: 50px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.8);
-  }
-  .popup-content {
-    margin: auto;
-    display: block;
-    max-width: 90%;
-    max-height: 90%;
-  }
-</style>

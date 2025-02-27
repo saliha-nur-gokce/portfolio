@@ -9,15 +9,14 @@ The dataset consists of **21 economic indicators**, including inflation, private
 To examine the relationships between these features, we computed the **correlation matrix**, which highlights the dependencies among macroeconomic variables. This helped us identify **redundant features** and refine our selection for model training.
 
 <div class="img-container">
-  <img src="images/ML/correlation_matrix.png" class="img-popup" onclick="showPopup(this.src)">
+  <img src="images/ML/correlation_matrix.png" class="img-popup-large" onclick="showPopup(this.src)">
 </div>
 
 To further refine feature selection, we used **Random Forest** and **Gradient Boosting** feature importance rankings. These models identified the most influential predictors based on how much each variable reduces prediction error.
 
-<!-- Feature Importance Görselleri (Yan Yana) -->
 <div class="img-container">
-  <img src="images/ML/Random Forest_feature_importance.png" class="img-popup" onclick="showPopup(this.src)">
-  <img src="images/ML/Gradient Boosting_feature_importance.png" class="img-popup" onclick="showPopup(this.src)">
+  <img src="images/ML/Random Forest_feature_importance.png" class="img-popup-small" onclick="showPopup(this.src)">
+  <img src="images/ML/Gradient Boosting_feature_importance.png" class="img-popup-small" onclick="showPopup(this.src)">
 </div>
 
 These visualizations highlight the variables that contribute most to GDP growth forecasting, forming the basis for our predictive models.
@@ -49,12 +48,10 @@ To understand the impact of features on GDP growth, we used **SHAP (SHapley Addi
 - **Unemployment rate and public debt** have **negative** contributions to GDP growth.
 - **Gradient Boosting provided the most stable and interpretable feature importance rankings.**
 
-<!-- SHAP Görselleri (Yan Yana) -->
 <div class="img-container">
-  <img src="images/ML/shap_summary_dot_RandomForest.png" class="img-popup" onclick="showPopup(this.src)">
-  <img src="images/ML/shap_summary_dot_GradientBoosting.png" class="img-popup" onclick="showPopup(this.src)">
+  <img src="images/ML/shap_summary_dot_RandomForest.png" class="img-popup-small" onclick="showPopup(this.src)">
+  <img src="images/ML/shap_summary_dot_GradientBoosting.png" class="img-popup-small" onclick="showPopup(this.src)">
 </div>
-
 
 ## **Forecasting and Visualizations**
 
@@ -64,16 +61,14 @@ The forecast comparison shows that:
 - **RF and GB track GDP movements more closely, especially during economic shocks.**
 - **Density plots highlight how key features behave during periods of high and low GDP growth.**
 
-<!-- Forecasted vs Actual -->
 <div class="img-container">
-  <img src="images/ML/forecasted_vs_actual_multiple.png" class="img-popup" onclick="showPopup(this.src)">
+  <img src="images/ML/forecasted_vs_actual_multiple.png" class="img-popup-large" onclick="showPopup(this.src)">
 </div>
-
 
 Density graphs were obtained for the common best 5 features selected by the RF and GB models on the basis of good and bad years. The distinction between good and bad years was made by determining the threshold of 0.69%, which is the average quarterly growth value between 1970Q1-2019Q4. Quarters above this threshold value were selected as good growth, and quarters below this threshold value were selected as bad growth periods.
 
 <div class="img-container">
-  <img src="images/ML/kde_subplots_common_top6.png" class="img-popup" onclick="showPopup(this.src)">
+  <img src="images/ML/kde_subplots_common_top6.png" class="img-popup-large" onclick="showPopup(this.src)">
 </div>
 
 ## **Limitations and Future Work**
@@ -96,21 +91,6 @@ Despite its successes, the project also revealed limitations in predictive power
 
 [View Project Paper for More Detail](https://drive.google.com/file/d/1decAKDOtMaB4cRprLFqndsPNoqnHslRR/view?usp=sharing)
 
-<!-- Büyük Açılır Görsel -->
-<div id="popup" class="popup-container" onclick="hidePopup()">
-  <img id="popup-img" class="popup-content">
-</div>
-
-<script>
-  function showPopup(src) {
-    document.getElementById("popup").style.display = "block";
-    document.getElementById("popup-img").src = src;
-  }
-  function hidePopup() {
-    document.getElementById("popup").style.display = "none";
-  }
-</script>
-
 <style>
   .img-container {
     display: flex;
@@ -118,16 +98,30 @@ Despite its successes, the project also revealed limitations in predictive power
     gap: 15px;
     flex-wrap: wrap;
   }
-  .img-popup {
+
+  /* Yan yana olan görseller için (Feature Importance & SHAP) */
+  .img-popup-small {
     cursor: pointer;
     transition: 0.3s;
-    width: 45%;
-    max-width: 800px;
+    width: 60%; /* Daha büyük hale getirildi */
+    max-width: 600px; /* Büyük ekranlarda daha geniş */
     height: auto;
   }
-  .img-popup:hover {
+
+  /* Tek başına olan büyük görseller için (Correlation Matrix, Forecast, KDE) */
+  .img-popup-large {
+    cursor: pointer;
+    transition: 0.3s;
+    width: 85%; /* Daha fazla genişlik verildi */
+    max-width: 900px;
+    height: auto;
+  }
+
+  .img-popup-small:hover, .img-popup-large:hover {
     opacity: 0.7;
   }
+
+  /* Pop-up açıldığında tam ekran görüntü */
   .popup-container {
     display: none;
     position: fixed;
@@ -146,4 +140,3 @@ Despite its successes, the project also revealed limitations in predictive power
     max-height: 90%;
   }
 </style>
-

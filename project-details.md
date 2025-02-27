@@ -65,4 +65,4 @@ Despite these limitations, the analysis achieved some success by identifying sep
 
 Although the project did not fully achieve its goal of robustly explaining the relationship between development and environmental sustainability, it did provide valuable insights and highlight the significant resulting challenges in analyzing these dynamics. The findings highlight the need for more comprehensive data, refined models, and additional contextual factors to better understand and address the complex interactions between socioeconomic development and environmental sustainability.
 
-[View Project Codes](finalProject.ipynb)
+[View Project Codes](https://github.com/saliha-nur-gokce/portfolio/blob/main/finalProject.ipynb)

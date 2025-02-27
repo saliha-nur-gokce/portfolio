@@ -131,7 +131,3 @@ Despite its successes, the project also revealed limitations in predictive power
     document.getElementById("popup").style.display = "none";
   }
 </script>
-  function hidePopup() {
-    document.getElementById("popup").style.display = "none";
-  }
-</script>

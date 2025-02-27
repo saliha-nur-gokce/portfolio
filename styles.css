@@ -1,0 +1,49 @@
+<style>
+  .img-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  /* Yan yana olan görseller için (Feature Importance & SHAP) */
+  .img-popup-small {
+    cursor: pointer;
+    transition: 0.3s;
+    width: 60%; /* Daha büyük hale getirildi */
+    max-width: 600px; /* Büyük ekranlarda daha geniş */
+    height: auto;
+  }
+
+  /* Tek başına olan büyük görseller için (Correlation Matrix, Forecast, KDE) */
+  .img-popup-large {
+    cursor: pointer;
+    transition: 0.3s;
+    width: 85%; /* Daha fazla genişlik verildi */
+    max-width: 900px;
+    height: auto;
+  }
+
+  .img-popup-small:hover, .img-popup-large:hover {
+    opacity: 0.7;
+  }
+
+  /* Pop-up açıldığında tam ekran görüntü */
+  .popup-container {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+  }
+  .popup-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+  }
+</style>

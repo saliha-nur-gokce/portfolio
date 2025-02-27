@@ -18,20 +18,16 @@ To examine the relationships between these features, we computed the **correlati
 
 To further refine feature selection, we used **Random Forest** and **Gradient Boosting** feature importance rankings. These models identified the most influential predictors based on how much each variable reduces prediction error.
 
-<div style="text-align: center;">
-  <div style="display: inline-block; margin: 15px;">
-    <img src="images/ML/Random Forest_feature_importance.png" 
-         width="45%" 
-         onclick="showPopup(this.src)" 
-         style="cursor: pointer;">
-  </div>
-
-  <div style="display: inline-block; margin: 15px;">
-    <img src="images/ML/Gradient Boosting_feature_importance.png" 
-         width="45%" 
-         onclick="showPopup(this.src)" 
-         style="cursor: pointer;">
-  </div>
+<div style="display: flex; justify-content: center; gap: 20px; margin: 15px;">
+  <img src="images/ML/Random Forest_feature_importance.png" 
+       width="45%" 
+       onclick="showPopup(this.src)" 
+       style="cursor: pointer;">
+  
+  <img src="images/ML/Gradient Boosting_feature_importance.png" 
+       width="45%" 
+       onclick="showPopup(this.src)" 
+       style="cursor: pointer;">
 </div>
 
 These visualizations highlight the variables that contribute most to GDP growth forecasting, forming the basis for our predictive models.
@@ -63,22 +59,17 @@ To understand the impact of features on GDP growth, we used **SHAP (SHapley Addi
 - **Unemployment rate and public debt** have **negative** contributions to GDP growth.
 - **Gradient Boosting provided the most stable and interpretable feature importance rankings.**
 
-<div style="text-align: center;">
-  <div style="display: inline-block; margin: 15px;">
-    <img src="images/ML/shap_summary_dot_RandomForest.png" 
-         width="45%" 
-         onclick="showPopup(this.src)" 
-         style="cursor: pointer;">
-  </div>
-
-  <div style="display: inline-block; margin: 15px;">
-    <img src="images/ML/shap_summary_dot_GradientBoosting.png" 
-         width="45%" 
-         onclick="showPopup(this.src)" 
-         style="cursor: pointer;">
-  </div>
+<div style="display: flex; justify-content: center; gap: 20px; margin: 15px;">
+  <img src="images/ML/shap_summary_dot_RandomForest.png" 
+       width="45%" 
+       onclick="showPopup(this.src)" 
+       style="cursor: pointer;">
+  
+  <img src="images/ML/shap_summary_dot_GradientBoosting.png" 
+       width="45%" 
+       onclick="showPopup(this.src)" 
+       style="cursor: pointer;">
 </div>
-
 
 ## **Forecasting and Visualizations**
 
@@ -136,6 +127,10 @@ Despite its successes, the project also revealed limitations in predictive power
     document.getElementById("popup").style.display = "flex";
   }
 
+  function hidePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
   function hidePopup() {
     document.getElementById("popup").style.display = "none";
   }

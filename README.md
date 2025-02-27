@@ -24,9 +24,7 @@ This project aims to explore the relationship between the development level of c
 
 ![Project Diagram 2](images/DS/thirdCluster.png)
 
-<a href="project-details.md" target="_blank" style="display: inline-block; background-color: #4CAF50; color: white; padding: 10px 20px; text-align: center; text-decoration: none; border-radius: 5px;">
-  View Project Details
-</a>
+[View Project Details](project-details.md)
 
 ### Machine Learning Final Project
 #### Modeling US GDP Growth Using Machine Learning  

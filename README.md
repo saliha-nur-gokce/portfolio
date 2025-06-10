@@ -15,8 +15,23 @@ I'm a senior economics student at Boğaziçi University, with a strong interest 
 Economics, Boğaziçi University
 
 ## Projects
+### 1- Generative AI & Deep Learning Final Project
+#### AI-Powered Financial Assistant: Modular LLM and RAG System for Financial QA
 
-### Data Science Final Project
+This project presents a modular financial question-answering system developed for Turkish corporate data. It compares two large language model approaches: a **fine-tuned LLaMA 3 model** trained on domain-specific prompts, and a **Retrieval-Augmented Generation (RAG) model** enhanced with structured reasoning capabilities, named `ragenh`.
+
+The project started with a classic RAG architecture, retrieving relevant financial information via semantic search (FAISS + SentenceTransformers). However, to improve numerical accuracy and reasoning over balance sheets, we developed `ragenh`, which integrates `pandas` DataFrames and allows dynamic code execution during inference. This enables the assistant to compute, interpret, and justify financial values in real time.
+
+Each financial domain (liquidity, investment, debt) was modeled as a separate QA module using real firm-level data from BIST100 companies (2008–2024). Evaluation metrics such as **BERTScore, ROUGE-L, number match**, and **trend agreement** were used to benchmark models.
+
+While the fine-tuned model produced fluent and coherent answers, `ragenh` achieved the best overall performance by combining factual precision with structured reasoning.
+
+![Project Diagram 1](images/evaluation.png)
+
+[View Project Details](roboadvisor-project-details.md)
+
+
+### 2- Data Science Final Project
 #### Modeling the Relationship Between Development and Environmental Sustainability
 This project aims to explore the relationship between the development level of countries and their environmental and sustainability policies. Data from over 200 countries, spanning from **1990 to 2023**, was used, covering various **socio-economic and environmental factors**. The data was cleaned and organized using the **data.table and tidyverse** packages. To analyze the relationship between the selected environmental and socio-economic indicators, **cluster analysis** was performed. **Regression and decision tree models** were then applied **to capture both linear and non-linear relationships**. The results were visualized using the **ggplot2** package to highlight trends at the country level. The project seeks to provide actionable insights into the **key socio-economic factors that affect global sustainable development**.
 
@@ -26,7 +41,7 @@ This project aims to explore the relationship between the development level of c
 
 [View Project Details](project-details.md)
 
-### Machine Learning Final Project
+### 3- Machine Learning Final Project
 #### Modeling US GDP Growth Using Machine Learning  
 
 In this project, we have analyzed the predictive capabilities of tree-based machine learning models for forecasting the United States’ annual GDP growth, compared to the traditional **Autoregressive Time Series Analysis (AR(4))**. Additionally, we have assessed how our selected features influence GDP growth, analyzing the degree of impact they have in either a **positive or negative direction**.  

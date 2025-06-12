@@ -91,5 +91,4 @@ This project demonstrates the full pipeline from dataset creation to database de
 
 ---
 
-📂 [View Full Dataset & SQL Code](link_to_sql_repo_or_folder)  
-📂 [View Power BI Files](link_to_pbix_file_or_repo)
+[View Full Dataset & SQL Code](link_to_sql_repo_or_folder)  

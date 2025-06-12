@@ -33,13 +33,13 @@ While the fine-tuned model produced fluent and coherent answers, `ragenh` achiev
 ### 2- Data Analytics & Visualization Final Project
 #### E-Commerce Marketing Analytics Dashboard
 
-An end-to-end marketing analytics system was developed for a simulated e-commerce platform. A fully synthetic dataset was generated using Python, designed to reflect realistic marketing and sales behaviors based on actual e-commerce structures. The relational database includes 13 interrelated tables covering users, products, orders, campaigns, ads, sessions, and funnel interactions.
+An end-to-end marketing analytics system was developed for a simulated e-commerce platform. A fully synthetic dataset was generated using **Python**, designed to reflect realistic marketing and sales behaviors based on actual e-commerce structures. The relational database includes 13 interrelated tables covering users, products, orders, campaigns, ads, sessions, and funnel interactions.
 
-Foreign key relationships were implemented in MySQL, with stored procedures and views created to automate key business metrics such as total payments, ad budgets, campaign revenues, conversion rates, and ROI calculations. This structure allows dynamic reporting and supports advanced marketing analysis.
+Foreign key relationships were implemented in **MySQL**, with stored procedures and views created to automate key business metrics such as total payments, ad budgets, campaign revenues, conversion rates, and ROI calculations. This structure allows dynamic reporting and supports advanced marketing analysis.
 
-Using the structured SQL database, an interactive Power BI dashboard was built with 6 reporting pages, providing insights on user demographics, product stock levels, sales trends, advertising formats, campaign performance, and conversion funnels.
+Using the structured **SQL database**, an interactive **Power BI dashboard** was built with 6 reporting pages, providing insights on user demographics, product stock levels, sales trends, advertising formats, campaign performance, and conversion funnels.
 
-The project combines data generation, relational database design, SQL development, and business intelligence visualization to simulate a complete marketing analytics environment.
+The project combines *data generation, relational database design, SQL development*, and *business intelligence visualization* to simulate a complete marketing analytics environment.
 
 [View Project Details](sql-project-details.md)
 

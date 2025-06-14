@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Machine Learning Final Project Details</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <style>
+    body { background-color: #f9f9f9; }
+    .container { max-width: 900px; padding: 40px 20px; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 12px; margin: 50px auto; }
+    img { max-width: 100%; margin: 20px 0; border-radius: 8px; }
+    h1, h2, h3 { margin-top: 30px; }
+    ul { margin-left: 20px; }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>Machine Learning Final Project Details</h1>
+
+  <p>This project analyzes the predictive power of <b>machine learning models</b> for forecasting <b>quarterly U.S. GDP growth</b>, comparing them with the traditional <b>Autoregressive (AR(4)) model</b>. Additionally, it examines the impact of key economic indicators on GDP growth, assessing their positive or negative influence. The dataset includes macroeconomic variables from the <b>Federal Reserve Economic Data (FRED)</b>, covering the period from <b>1970Q1 to 2020Q1</b>.</p>
+
+  <h2>Data and Feature Selection</h2>
+
+  <p>The dataset consists of <b>21 economic indicators</b>, including inflation, private investment, unemployment rate, and current account balance. To improve predictive accuracy, we conducted <b>feature selection</b> using <b>Random Forest (RF)</b> and <b>Gradient Boosting (GB)</b>, ranking the most influential features based on their impact on GDP growth. <b>Principal Component Analysis (PCA)</b> was also applied to reduce dimensionality while preserving essential information.</p>
+
+  <p>To examine the relationships between these features, we computed the <b>correlation matrix</b>:</p>
+
+  <img src="images/ML/correlation_matrix.png" alt="Correlation Matrix"/>
+
+  <p>Feature importance via RF and GB:</p>
+
+  <div class="row text-center">
+    <div class="col-md-6"><img src="images/ML/Random Forest_feature_importance.png" alt="RF Feature Importance"/></div>
+    <div class="col-md-6"><img src="images/ML/Gradient Boosting_feature_importance.png" alt="GB Feature Importance"/></div>
+  </div>
+
+  <h2>Machine Learning Models and Benchmarking</h2>
+
+  <p>The analysis compares three models:</p>
+  <ul>
+    <li><b>AR(4):</b> baseline autoregressive model.</li>
+    <li><b>Random Forest:</b> ensemble learning using averaged decision trees.</li>
+    <li><b>Gradient Boosting:</b> sequential model improving via prediction errors.</li>
+  </ul>
+
+  <p>Models trained on 1970Q1–2012Q4; tested on 2013Q1–2020Q1 using <b>Mean Squared Error (MSE)</b>.</p>
+
+  <h2>Model Performance and Key Findings</h2>
+
+  <ul>
+    <li><b>Gradient Boosting:</b> best test MSE (0.113), followed by RF (0.120), AR(4) worst (0.157).</li>
+    <li><b>RF and GB:</b> better adaptation to sudden changes.</li>
+    <li><b>Key features:</b> private investment change, labor productivity, inflation.</li>
+  </ul>
+
+  <h2>Model Interpretation and SHAP Analysis</h2>
+
+  <p>SHAP results:</p>
+
+  <ul>
+    <li><b>Private investment change:</b> strongest positive effect.</li>
+    <li><b>Labor productivity:</b> key growth driver.</li>
+    <li><b>Unemployment & public debt:</b> negative impact.</li>
+  </ul>
+
+  <div class="row text-center">
+    <div class="col-md-6"><img src="images/ML/shap_summary_dot_RandomForest.png" alt="RF SHAP Summary"/></div>
+    <div class="col-md-6"><img src="images/ML/shap_summary_dot_GradientBoosting.png" alt="GB SHAP Summary"/></div>
+  </div>
+
+  <h2>Forecasting and Visualizations</h2>
+
+  <p>Forecast comparisons:</p>
+
+  <ul>
+    <li><b>AR(4):</b> struggles with GDP volatility.</li>
+    <li><b>RF & GB:</b> better tracking of fluctuations.</li>
+  </ul>
+
+  <img src="images/ML/forecasted_vs_actual_multiple.png" alt="Forecast vs Actual"/>
+
+  <p>Density plots for top 5 features by growth periods:</p>
+
+  <img src="images/ML/kde_subplots_common_top6.png" alt="Density Plots"/>
+
+  <h2>Limitations and Future Work</h2>
+
+  <ul>
+    <li>Moderate prediction accuracy.</li>
+    <li>Inclusion of alternative data sources may help.</li>
+    <li>Neural networks and deep learning worth testing.</li>
+    <li>Geopolitical/trade data could enhance models.</li>
+    <li>Time-series cross-validation recommended.</li>
+  </ul>
+
+  <h2>Conclusion</h2>
+
+  <p>This project shows that <b>machine learning models significantly outperform traditional econometric methods</b> in GDP forecasting. <b>Gradient Boosting</b> achieved superior accuracy and better captured non-linear relationships, while <b>SHAP analysis and KDE visualizations</b> offered valuable feature-level insights.</p>
+
+  <p>While improvements remain possible, machine learning proves highly promising for adaptive economic forecasting.</p>
+
+  <p>
+    <a href="https://drive.google.com/file/d/1decAKDOtMaB4cRprLFqndsPNoqnHslRR/view?usp=sharing" target="_blank">View Project Paper for More Detail</a><br/>
+    <a href="https://github.com/saliha-nur-gokce/portfolio/blob/main/EC48E_FinalAssignment.ipynb" target="_blank">View Project Codes</a>
+  </p>
+
+  <div class="text-center mt-5">
+    <a href="index.html" class="btn btn-secondary">Back to Home</a>
+  </div>
+
+</div>
+
+</body>
+</html>

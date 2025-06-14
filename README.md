@@ -15,146 +15,93 @@ I'm a senior economics student at Boğaziçi University, with a strong interest 
 Economics, Boğaziçi University
 
 ## Projects
-### 1- Generative AI & Deep Learning Final Project
-#### AI-Powered Financial Assistant: Modular LLM and RAG System for Financial QA
-
-This project presents a modular financial question-answering system developed for Turkish corporate data. It compares two large language model approaches: a **fine-tuned LLaMA 3 model** trained on domain-specific prompts, and a **Retrieval-Augmented Generation (RAG) model** enhanced with structured reasoning capabilities, named `ragenh`.
-
-The project started with a classic RAG architecture, retrieving relevant financial information via semantic search (FAISS + SentenceTransformers). However, to improve numerical accuracy and reasoning over balance sheets, we developed `ragenh`, which integrates `pandas` DataFrames and allows dynamic code execution during inference. This enables the assistant to compute, interpret, and justify financial values in real time.
-
-Each financial domain (liquidity, investment, debt) was modeled as a separate QA module using real firm-level data from BIST100 companies (2008–2024). Evaluation metrics such as **BERTScore, ROUGE-L, number match**, and **trend agreement** were used to benchmark models.
-
-While the fine-tuned model produced fluent and coherent answers, `ragenh` achieved the best overall performance by combining factual precision with structured reasoning.
-
-![Project Diagram 1](images/evaluation.png)
-
-[View Project Details](roboadvisor-project-details.md)
-
-### 2- Data Analytics & Visualization Final Project
-#### E-Commerce Marketing Analytics Dashboard
-
-An end-to-end marketing analytics system was developed for a simulated e-commerce platform. A fully synthetic dataset was generated using **Python**, designed to reflect realistic marketing and sales behaviors based on actual e-commerce structures. The relational database includes 13 interrelated tables covering users, products, orders, campaigns, ads, sessions, and funnel interactions.
-
-Foreign key relationships were implemented in **MySQL**, with stored procedures and views created to automate key business metrics such as total payments, ad budgets, campaign revenues, conversion rates, and ROI calculations. This structure allows dynamic reporting and supports advanced marketing analysis.
-
-Using the structured **SQL database**, an interactive **Power BI dashboard** was built with 6 reporting pages, providing insights on user demographics, product stock levels, sales trends, advertising formats, campaign performance, and conversion funnels.
-
-The project combines *data generation, relational database design, SQL development*, and *business intelligence visualization* to simulate a complete marketing analytics environment.
-
-[View Project Details](sql-project-details.md)
-
-
-### 3- Data Science Final Project
-#### Modeling the Relationship Between Development and Environmental Sustainability
-This project aims to explore the relationship between the development level of countries and their environmental and sustainability policies. Data from over 200 countries, spanning from **1990 to 2023**, was used, covering various **socio-economic and environmental factors**. The data was cleaned and organized using the **data.table and tidyverse** packages. To analyze the relationship between the selected environmental and socio-economic indicators, **cluster analysis** was performed. **Regression and decision tree models** were then applied **to capture both linear and non-linear relationships**. The results were visualized using the **ggplot2** package to highlight trends at the country level. The project seeks to provide actionable insights into the **key socio-economic factors that affect global sustainable development**.
-
-![Project Diagram 1](images/DS/secondCluster.png)
-
-![Project Diagram 2](images/DS/thirdCluster.png)
-
-[View Project Details](project-details.md)
-
-### 4- Machine Learning Final Project
-#### Modeling US GDP Growth Using Machine Learning  
-
-In this project, we have analyzed the predictive capabilities of tree-based machine learning models for forecasting the United States’ annual GDP growth, compared to the traditional **Autoregressive Time Series Analysis (AR(4))**. Additionally, we have assessed how our selected features influence GDP growth, analyzing the degree of impact they have in either a **positive or negative direction**.  
-
-Our machine learning framework integrates structural time-series data such as **consumer price index, net savings, and current account balance**, alongside structural indicators like **unemployment rate**. We have employed tree-based ensemble models, specifically **Random Forest and Gradient Boosting**, as well as the unsupervised learning method **Principal Component Analysis (PCA)** to identify the most significant features among the selected indicators.  
-
-The models were trained using data from **1970 Q1 to 2012 Q4** and tested from **2013 Q1 to 2020 Q1**. Model performance comparisons were conducted using **Mean Squared Error (MSE)** as the evaluation metric. The **SHAP (SHapley Additive exPlanations)** values and density plots extracted from tree-based model estimates offer insights into the **directional impact of each feature on GDP growth predictions**.  
-
-Our findings indicate that **Gradient Boosting slightly outperforms Random Forest**, and both models significantly outperform the traditional **Autoregressive Model (AR(4))** in predictive accuracy.  
 
 <style>
-  /* İlk iki görselin düzgün yan yana görünmesi */
-  .img-container {
-    display: flex; /* Yan yana hizalama */
-    justify-content: center;
-    gap: 10px; /* İki resim arasındaki boşluk */
-    flex-wrap: wrap; /* Küçük ekranlarda resimlerin taşmasını önler */
-  }
-
-  /* İlk iki küçük görsel için */
-  .img-popup-small {
-    cursor: pointer;
-    transition: 0.3s;
-    width: 45%; /* Geniş ekranlarda %45 genişlik */
-    max-width: 400px; /* Çok büyük ekranlarda bile en fazla 400px olacak */
-    height: auto;
-  }
-  .img-popup-small:hover {
-    opacity: 0.7;
-  }
-
-  /* Son büyük görsel için */
-  .large-img-popup {
-    cursor: pointer;
-    transition: 0.3s;
-    width: 800px; /* Büyük görselin genişliği */
-    display: block;
-    margin: 20px auto; /* Ortalamak için */
-  }
-  .large-img-popup:hover {
-    opacity: 0.7;
-  }
-
-  /* Pop-up için */
-  .popup-container {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    padding-top: 50px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.8);
-  }
-  .popup-content {
-    margin: auto;
-    display: block;
-    max-width: 90%;
-    max-height: 90%;
-  }
-
-  /* Küçük ekranlar için (Mobil Uyumluluk) */
-  @media (max-width: 768px) {
-    .img-container {
-      flex-direction: column; /* Küçük ekranlarda resimleri alt alta koy */
-      align-items: center;
-    }
-    .img-popup-small {
-      width: 80%; /* Küçük ekranlarda genişliği artır */
-    }
-    .large-img-popup {
-      width: 90%; /* Küçük ekranlarda büyük görselin genişliği */
-    }
-  }
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+.project-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fafafa;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+.project-card:hover {
+  transform: scale(1.02);
+}
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.project-card-content {
+  padding: 15px;
+}
+.project-card-content h3 {
+  margin: 0;
+  font-size: 1.2em;
+}
+.project-card-content p {
+  font-size: 0.95em;
+  color: #555;
+}
+.project-card-content a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007acc;
+  font-weight: bold;
+  text-decoration: none;
+}
+.project-card-content a:hover {
+  text-decoration: underline;
+}
 </style>
 
-<!-- İlk iki görsel (Yan Yana) -->
-<div class="img-container">
-  <img src="images/ML/Gradient Boosting_feature_importance.png" class="img-popup-small" onclick="showPopup(this.src)">
-  <img src="images/ML/Random Forest_feature_importance.png" class="img-popup-small" onclick="showPopup(this.src)">
+<div class="project-grid">
+
+  <!-- Project 1 -->
+  <div class="project-card">
+    <img src="images/evaluation.png" alt="AI Financial Assistant">
+    <div class="project-card-content">
+      <h3>AI-Powered Financial Assistant</h3>
+      <p>Modular LLM & RAG system for corporate QA using fine-tuning and retrieval-based architectures.</p>
+      <a href="roboadvisor-project-details.md">View Details</a>
+    </div>
+  </div>
+
+  <!-- Project 2 -->
+  <div class="project-card">
+    <img src="images/DS/secondCluster.png" alt="Data Science Project">
+    <div class="project-card-content">
+      <h3>Development & Sustainability</h3>
+      <p>Clustering and regression analysis on global development and environmental sustainability data.</p>
+      <a href="project-details.md">View Details</a>
+    </div>
+  </div>
+
+  <!-- Project 3 -->
+  <div class="project-card">
+    <img src="images/ML/forecasted_vs_actual_multiple.png" alt="GDP Forecasting">
+    <div class="project-card-content">
+      <h3>US GDP Forecasting</h3>
+      <p>Machine learning models vs time series models for forecasting US GDP growth using tree-based models and PCA.</p>
+      <a href="mlproject-details.md">View Details</a>
+    </div>
+  </div>
+
+  <!-- Project 4 -->
+  <div class="project-card">
+    <img src="images/orders.png" alt="Marketing Analytics">
+    <div class="project-card-content">
+      <h3>Marketing Analytics Dashboard</h3>
+      <p>Simulated e-commerce analytics system with SQL database, MySQL stored procedures and Power BI visualization.</p>
+      <a href="sql-project-details.md">View Details</a>
+    </div>
+  </div>
+
 </div>
-
-<!-- Büyük Görsel (Alt Satırda) -->
-<img src="images/ML/forecasted_vs_actual_multiple.png" class="large-img-popup" onclick="showPopup(this.src)">
-
-<!-- Pop-up Açılır Görsel -->
-<div id="popup" class="popup-container" onclick="hidePopup()">
-  <img id="popup-img" class="popup-content">
-</div>
-
-<script>
-  function showPopup(src) {
-    document.getElementById("popup").style.display = "block";
-    document.getElementById("popup-img").src = src;
-  }
-  function hidePopup() {
-    document.getElementById("popup").style.display = "none";
-  }
-</script>
-
-
-[View Project Details](mlproject-details.md)

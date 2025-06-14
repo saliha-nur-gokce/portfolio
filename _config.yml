@@ -1,5 +1,3 @@
 title: Saliha Nur Gökçe
 logo: images/521BE5A1-05A4-412B-BD5D-7D2DD3C4F0CF.JPG
-theme: minimal-mistakes-jekyll
-plugins:
-  - jekyll-include-cache
+theme: jekyll-theme-cayman

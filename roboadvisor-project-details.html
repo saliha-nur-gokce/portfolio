@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI-Powered Financial Assistant: Project Details</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <style>
+    body { background-color: #f9f9f9; }
+    .container { max-width: 900px; padding: 40px 20px; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 12px; margin: 50px auto; }
+    img { max-width: 100%; margin: 20px 0; border-radius: 8px; }
+    h1, h2, h3 { margin-top: 30px; }
+    ul { margin-left: 20px; }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>AI-Powered Financial Assistant: Fine-Tuned and Retrieval-Based LLM for Corporate QA</h1>
+
+  <p>This project presents a modular AI system for corporate financial question answering (QA), developed as part of a Generative AI and Deep Learning course. The system is designed to operate on structured Turkish financial data and evaluates two distinct model architectures: instruction-based fine-tuning of LLaMA 3 and an enhanced Retrieval-Augmented Generation (RAG) pipeline with executable reasoning.</p>
+
+  <h2>Architecture and Model Design</h2>
+
+  <p>The project started with a standard <b>RAG</b> setup, where relevant financial passages were retrieved using semantic search (FAISS + SentenceTransformers) and passed to a language model to generate answers. However, we identified performance limitations in numerical precision and reasoning over structured data. To overcome these, we transitioned to an improved system called <b>ragenh</b>.</p>
+
+  <ul>
+    <li><b>Enhanced RAG (ragenh):</b> Integrates <code>pandas</code> DataFrames directly into the generation loop, generating executable Python code for table querying, numeric lookups, temporal comparisons, and investment suggestions.</li>
+    <li><b>Fine-tuning:</b> Trained a LLaMA 3 8B model using LoRA adapters and Turkish instruction-based financial prompts. The fine-tuned model specialized in understanding financial question structure and producing coherent, domain-aligned outputs without retrieval.</li>
+  </ul>
+
+  <p>Each financial domain — such as <b>liquidity</b>, <b>investment planning</b>, and <b>debt strategy</b> — is implemented as a modular QA task. Datasets include balance sheets and income statements from BIST100 companies (2008–2024), collected via Turkey’s Public Disclosure Platform (KAP) and enriched with derived financial ratios and trends.</p>
+
+  <h2>Evaluation and Metrics</h2>
+
+  <p>Evaluation pipeline covered factual lookup, trend analysis, and opinion-based investment reasoning. Metrics include:</p>
+
+  <ul>
+    <li><b>ROUGE-L</b> for lexical similarity</li>
+    <li><b>BERTScore (F1)</b> for semantic alignment (Turkish embeddings)</li>
+    <li><b>Number Match Score</b> for numeric accuracy</li>
+    <li><b>Trend Direction Agreement</b> for temporal consistency</li>
+  </ul>
+
+  <h3>Key Findings</h3>
+
+  <ul>
+    <li><b>Fine-tuned model:</b> produced fluent, semantically rich answers for interpretive questions.</li>
+    <li><b>RAG:</b> strong in raw extraction but weaker in contextualization.</li>
+    <li><b>ragenh:</b> best overall, combining accuracy with structured reasoning — especially in open-ended, strategic queries.</li>
+  </ul>
+
+  <p>Evaluation demonstrated that <code>ragenh</code> outperformed the other models in complex reasoning by dynamically interacting with real tabular data.</p>
+
+  <img src="images/evaluation.png" alt="Evaluation Metrics"/>
+
+  <h2>Tools and Technologies</h2>
+
+  <ul>
+    <li>Python</li>
+    <li><code>transformers</code>, <code>peft</code> – for instruction tuning (LoRA adapters)</li>
+    <li><code>sentence-transformers</code>, <code>faiss</code> – for semantic retrieval</li>
+    <li><code>pandas</code>, <code>numpy</code>, <code>matplotlib</code> – for data processing and visualization</li>
+    <li>Custom evaluation scripts for financial metrics and Turkish-language normalization</li>
+  </ul>
+
+  <h2>Impact and Future Work</h2>
+
+  <p>This project contributes to developing <b>interpretable, low-resource financial AI tools</b> for the Turkish language and corporate finance domain. By evolving from a standard RAG model to a reasoning-enhanced architecture, it highlights the importance of structured data access and modular QA design.</p>
+
+  <p>Planned extensions include:</p>
+
+  <ul>
+    <li>Integration of macroeconomic and unstructured data (e.g., analyst reports, news)</li>
+    <li>Adaptation for Turkish-speaking SMEs as a financial assistant</li>
+    <li>Improved explainability layers for end-user transparency</li>
+    <li>Advanced reasoning and forecasting modules</li>
+  </ul>
+
+  <p>
+    <a href="https://drive.google.com/file/d/164D1TA2y1MSHfCvgd1iv4KgvSRxLuu5x/view?usp=sharing" target="_blank">View Project Paper</a><br/>
+    <a href="link_to_repo_or_folder" target="_blank">View Project Codes</a>
+  </p>
+
+  <div class="text-center mt-5">
+    <a href="index.html" class="btn btn-secondary">Back to Home</a>
+  </div>
+
+</div>
+
+</body>
+</html>

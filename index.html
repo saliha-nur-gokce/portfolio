@@ -1,102 +1,105 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Saliha Nur Gökçe Portfolio</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
-  <style>
-    body { background-color: #f9f9f9; margin: 0; padding: 0; }
-    .header {
-      background-color: #eaf4fb; padding: 40px 20px 30px 20px; text-align: center;
-    }
-    .profile-img {
-      width: 150px; height: 150px; border-radius: 50%; object-fit: cover;
-      border: 3px solid #ddd; margin-bottom: 20px;
-    }
-    .social-icons img { width: 35px; height: 35px; margin: 0 10px; }
-    .projects-section { padding: 50px 20px; }
-    .card { box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: none; border-radius: 12px; }
-    .card-img-top { height: 200px; object-fit: cover; border-top-left-radius: 12px; border-top-right-radius: 12px; }
-    .card-body { min-height: 240px; }
-  </style>
-</head>
-<body>
+<style>
+  body {
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+  }
 
-<div class="header">
-  <img src="images/521BE5A1-05A4-412B-BD5D-7D2DD3C4F0CF.JPG" class="profile-img" alt="Profile Photo"/>
-  <h1>Saliha Nur Gökçe</h1>
-  <p>Senior Economics Student at Boğaziçi University</p>
+  .header {
+    background-color: #eaf4fb;
+    padding: 50px 20px 40px;
+    text-align: center;
+  }
 
-  <p style="max-width: 700px; margin: 20px auto;">
-    I'm a senior economics student at Boğaziçi University, with a strong interest in data analytics, automation, and machine learning applications. I enjoy working with large datasets, uncovering patterns, and building efficient workflows with Python, R, and SQL. I’m currently exploring machine learning applications and improving my skills in finance-related data analysis.
-    Please view my <a href="https://drive.google.com/file/d/1LC0i6enrKl5g6qMN-ivTTudMPnGIyb5W/view?usp=sharing" target="_blank">CV</a>, check out my projects, and feel free to connect with me at <a href="mailto:s.nurgkce@gmail.com">s.nurgkce@gmail.com</a>.
-  </p>
+  .profile-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ccc;
+    margin-bottom: 20px;
+  }
 
-  <div class="social-icons">
-    <a href="https://www.linkedin.com/in/saliha-nur-gokce/" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"/>
-    </a>
-    <a href="https://github.com/saliha-nur-gokce" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub"/>
-    </a>
-  </div>
-</div>
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
 
-<div class="projects-section container">
-  <h2 class="text-center mb-5">Projects</h2>
-  <div class="row g-4">
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 10px auto;
+  }
 
-    <!-- Project 1 -->
-    <div class="col-md-6 col-lg-3">
-      <div class="card h-100">
-        <img src="images/evaluation.png" class="card-img-top" alt="AI Financial Assistant">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">AI-Powered Financial Assistant</h5>
-          <p class="card-text">Modular LLM & RAG system for corporate QA using fine-tuning and retrieval-based architectures.</p>
-          <a href="roboadvisor-project-details.html" class="btn btn-primary mt-auto" target="_blank">View Details</a>
-        </div>
-      </div>
-    </div>
+  .social-icons {
+    margin-top: 15px;
+  }
 
-    <!-- Project 2 -->
-    <div class="col-md-6 col-lg-3">
-      <div class="card h-100">
-        <img src="images/DS/secondCluster.png" class="card-img-top" alt="Development & Sustainability">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Global Development Patterns: Clustering & Regression Analysis Using R</h5>
-          <p class="card-text">Clustering and regression analysis on global development and environmental sustainability data.</p>
-          <a href="project-details.html" class="btn btn-primary mt-auto" target="_blank">View Details</a>
-        </div>
-      </div>
-    </div>
+  .social-icons img {
+    width: 28px;
+    height: 28px;
+    margin: 0 8px;
+    filter: grayscale(100%);
+    transition: 0.3s;
+  }
 
-    <!-- Project 3 -->
-    <div class="col-md-6 col-lg-3">
-      <div class="card h-100">
-        <img src="images/ML/forecasted_vs_actual_multiple.png" class="card-img-top" alt="US GDP Forecasting">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Forecasting US GDP Growth: Machine Learning vs AR Models</h5>
-          <p class="card-text">Machine learning models vs time series models for forecasting US GDP growth using tree-based models and PCA.</p>
-          <a href="mlproject-details.html" class="btn btn-primary mt-auto" target="_blank">View Details</a>
-        </div>
-      </div>
-    </div>
+  .social-icons img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+  }
 
-    <!-- Project 4 -->
-    <div class="col-md-6 col-lg-3">
-      <div class="card h-100">
-        <img src="images/orders.png" class="card-img-top" alt="Marketing Analytics Dashboard">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Marketing Analytics Dashboard</h5>
-          <p class="card-text">Simulated e-commerce analytics system with SQL database, MySQL stored procedures and Power BI visualization.</p>
-          <a href="sql-project-details.html" class="btn btn-primary mt-auto" target="_blank">View Details</a>
-        </div>
-      </div>
-    </div>
+  .projects-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+  }
 
-  </div>
-</div>
+  .card {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+    border: none;
+    border-radius: 16px;
+    transition: transform 0.3s;
+  }
 
-</body>
-</html>
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card-img-top {
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .card-body {
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+    font-weight: 500;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+</style>

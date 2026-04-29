@@ -3,100 +3,234 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Saliha Nur Gökçe Portfolio</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
-  <style>
-    body { background-color: #f9f9f9; margin: 0; padding: 0; }
-    .header {
-      background-color: #eaf4fb; padding: 40px 20px 30px 20px; text-align: center;
-    }
-    .profile-img {
-      width: 150px; height: 150px; border-radius: 50%; object-fit: cover;
-      border: 3px solid #ddd; margin-bottom: 20px;
-    }
-    .social-icons img { width: 35px; height: 35px; margin: 0 10px; }
-    .projects-section { padding: 50px 20px; }
-    .card { box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: none; border-radius: 12px; }
-    .card-img-top { height: 200px; object-fit: cover; border-top-left-radius: 12px; border-top-right-radius: 12px; }
-    .card-body { min-height: 240px; }
-  </style>
+  <title>Saliha Nur Gökçe — Portfolio</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
-<div class="header">
-  <img src="images/521BE5A1-05A4-412B-BD5D-7D2DD3C4F0CF.JPG" class="profile-img" alt="Profile Photo"/>
-  <h1>Saliha Nur Gökçe</h1>
-  <p>MA in Computational Social Sciences | Koç University Graduate Student</p>
+<!-- Navigation -->
+<nav class="nav">
+  <a href="#" class="nav-name">Saliha Nur Gökçe</a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="https://drive.google.com/file/d/11pX4P6Op__JnmsV_60KMBIgX7q5Xdljm/view?usp=sharing" target="_blank">CV</a></li>
+    <li><a href="mailto:s.nurgkce@gmail.com">Contact</a></li>
+  </ul>
+</nav>
 
-  <p style="max-width: 700px; margin: 20px auto;">
-    I recently started my MA in Computational Social Sciences at Koç University, where I explore the intersection of data, technology, and human behavior. My background in Economics from Boğaziçi University has shaped my interest in quantitative social research, and I’m now focusing on applying computational methods to analyze complex social phenomena. I’m passionate about leveraging data analytics and machine learning to gain insights into social and economic systems. I work with Python, R, and SQL to process complex datasets, automate workflows, and develop data-driven solutions. My recent projects focus on predictive modeling, text analysis, and data visualization.  
-    Please view my <a href="https://drive.google.com/file/d/11pX4P6Op__JnmsV_60KMBIgX7q5Xdljm/view?usp=sharing">CV</a>, check out my projects, and feel free to connect with me at <a href="mailto:s.nurgkce@gmail.com">s.nurgkce@gmail.com</a>!
-  </p>
+<main>
 
-  <div class="social-icons">
-    <a href="https://www.linkedin.com/in/saliha-nur-gokce/" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"/>
-    </a>
-    <a href="https://github.com/saliha-nur-gokce" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub"/>
-    </a>
+  <!-- Hero / About -->
+  <section class="hero" id="about">
+    <div class="container">
+      <div class="hero-inner">
+        <img
+          src="images/521BE5A1-05A4-412B-BD5D-7D2DD3C4F0CF.JPG"
+          alt="Saliha Nur Gökçe"
+          class="hero-photo"
+        />
+        <div>
+          <span class="overline">Portfolio</span>
+          <h1 class="hero-name">Saliha Nur Gökçe</h1>
+          <p class="hero-title">Computational Social Scientist · Data Analyst</p>
+          <p class="hero-bio">
+            I combine econometric methods and machine learning to study social and economic
+            systems — with a particular focus on climate shocks, financial NLP, and
+            displacement. Currently pursuing my MA in Computational Social Sciences at Koç
+            University, building on an Economics degree from Boğaziçi University.
+          </p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/saliha-nur-gokce/" target="_blank" class="social-link">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://github.com/saliha-nur-gokce" target="_blank" class="social-link">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              GitHub
+            </a>
+            <a href="mailto:s.nurgkce@gmail.com" class="social-link">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              s.nurgkce@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section" id="projects">
+    <div class="container">
+      <span class="section-label">Selected Work</span>
+      <h2 class="section-heading">Projects</h2>
+
+      <div class="projects-grid">
+
+        <!-- Card 1: AI-Powered Financial Assistant -->
+        <div class="project-card" style="--card-accent: var(--accent-llm);">
+          <p class="card-role">Team of 3 · Published at IEEE ISTAS 2025</p>
+          <h3 class="card-title">AI-Powered Financial Assistant</h3>
+          <p class="card-desc">
+            Comparative study of fine-tuning (LLaMA 3 8B + LoRA) and retrieval-augmented
+            generation for corporate financial QA on Turkish BIST100 data (2008–2025).
+            The enhanced RAG variant (ragenh) outperformed both baselines on
+            opinion-based reasoning tasks.
+          </p>
+          <div class="card-tags">
+            <span class="tag" style="background:var(--accent-llm-tint);color:var(--accent-llm-text);">LLM</span>
+            <span class="tag" style="background:var(--accent-llm-tint);color:var(--accent-llm-text);">RAG</span>
+            <span class="tag" style="background:var(--accent-llm-tint);color:var(--accent-llm-text);">Fine-Tuning</span>
+            <span class="tag" style="background:var(--accent-llm-tint);color:var(--accent-llm-text);">LLaMA</span>
+            <span class="tag" style="background:var(--accent-llm-tint);color:var(--accent-llm-text);">Python</span>
+            <span class="tag" style="background:var(--accent-llm-tint);color:var(--accent-llm-text);">NLP</span>
+            <span class="tag" style="background:var(--accent-llm-tint);color:var(--accent-llm-text);">Turkish Financial Data</span>
+          </div>
+          <div class="card-actions">
+            <a href="roboadvisor-project-details.html" class="card-link">View Details →</a>
+          </div>
+        </div>
+
+        <!-- Card 2: Climate Shocks & Agricultural Prices -->
+        <div class="project-card" style="--card-accent: var(--accent-climate);">
+          <p class="card-role">Solo · CSSM 502 Advanced Data Analysis · Ongoing Thesis Work</p>
+          <h3 class="card-title">Climate Shocks &amp; Agricultural Prices</h3>
+          <p class="card-desc">
+            Hybrid pipeline integrating Gradient Boosting threshold detection with panel
+            fixed-effects regression to quantify how frost shocks propagate into Turkish
+            producer prices across 81 provinces (2014–2024). Key finding: a −2°C shock
+            raises perishable vegetable prices by 6.5% with a one-month lag.
+          </p>
+          <div class="card-tags">
+            <span class="tag" style="background:var(--accent-climate-tint);color:var(--accent-climate-text);">Panel Fixed Effects</span>
+            <span class="tag" style="background:var(--accent-climate-tint);color:var(--accent-climate-text);">Gradient Boosting</span>
+            <span class="tag" style="background:var(--accent-climate-tint);color:var(--accent-climate-text);">Python</span>
+            <span class="tag" style="background:var(--accent-climate-tint);color:var(--accent-climate-text);">Open-Meteo API</span>
+            <span class="tag" style="background:var(--accent-climate-tint);color:var(--accent-climate-text);">TÜİK Data</span>
+            <span class="tag" style="background:var(--accent-climate-tint);color:var(--accent-climate-text);">Climate Econometrics</span>
+          </div>
+          <div class="card-actions">
+            <a href="agricultural-climate.html" class="card-link">View Details →</a>
+          </div>
+        </div>
+
+        <!-- Card 3: Wildfire Displacement -->
+        <div class="project-card" style="--card-accent: var(--accent-wildfire);">
+          <p class="card-role">Team of 3 · 1st Place, KU Datathon 2026</p>
+          <h3 class="card-title">The Hidden Geography of Wildfire Displacement</h3>
+          <p class="card-desc">
+            Multi-source event-level panel (1,648 events, 87 countries, 2019–2024)
+            combining NASA FIRMS satellite data with IDMC displacement records to test
+            whether fire intensity predicts human displacement. Fire size explains only
+            ~10% of variance; the relationship inverts in low-income countries — a
+            reporting-capacity signal, not a damage signal.
+          </p>
+          <div class="card-tags">
+            <span class="tag" style="background:var(--accent-wildfire-tint);color:var(--accent-wildfire-text);">NASA FIRMS API</span>
+            <span class="tag" style="background:var(--accent-wildfire-tint);color:var(--accent-wildfire-text);">PCA</span>
+            <span class="tag" style="background:var(--accent-wildfire-tint);color:var(--accent-wildfire-text);">K-Means</span>
+            <span class="tag" style="background:var(--accent-wildfire-tint);color:var(--accent-wildfire-text);">Panel Regression</span>
+            <span class="tag" style="background:var(--accent-wildfire-tint);color:var(--accent-wildfire-text);">Python</span>
+            <span class="tag" style="background:var(--accent-wildfire-tint);color:var(--accent-wildfire-text);">Plotly Dash</span>
+            <span class="tag" style="background:var(--accent-wildfire-tint);color:var(--accent-wildfire-text);">SDG 13</span>
+          </div>
+          <div class="card-actions">
+            <a href="wildfire-datathon.html" class="card-link">View Details →</a>
+            <a href="http://16.170.218.212:8050/" target="_blank" class="card-link-ext">
+              Live Dashboard
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 4: US GDP Forecasting -->
+        <div class="project-card" style="--card-accent: var(--accent-gdp);">
+          <p class="card-role">Solo · ML Course Project</p>
+          <h3 class="card-title">Forecasting US GDP Growth</h3>
+          <p class="card-desc">
+            Benchmarked tree-based machine learning models (Random Forest, Gradient
+            Boosting) against autoregressive baselines for US GDP growth forecasting.
+            Applied PCA for dimensionality reduction on macroeconomic feature sets from
+            FRED data (1970–2020). Gradient Boosting achieved the best test MSE (0.113
+            vs. AR(4) baseline of 0.157).
+          </p>
+          <div class="card-tags">
+            <span class="tag" style="background:var(--accent-gdp-tint);color:var(--accent-gdp-text);">Random Forest</span>
+            <span class="tag" style="background:var(--accent-gdp-tint);color:var(--accent-gdp-text);">Gradient Boosting</span>
+            <span class="tag" style="background:var(--accent-gdp-tint);color:var(--accent-gdp-text);">PCA</span>
+            <span class="tag" style="background:var(--accent-gdp-tint);color:var(--accent-gdp-text);">Python</span>
+            <span class="tag" style="background:var(--accent-gdp-tint);color:var(--accent-gdp-text);">Scikit-learn</span>
+            <span class="tag" style="background:var(--accent-gdp-tint);color:var(--accent-gdp-text);">Time Series</span>
+          </div>
+          <div class="card-actions">
+            <a href="mlproject-details.html" class="card-link">View Details →</a>
+          </div>
+        </div>
+
+        <!-- Card 5: Marketing Analytics Dashboard -->
+        <div class="project-card" style="--card-accent: var(--accent-sql);">
+          <p class="card-role">Solo · SQL + BI Project</p>
+          <h3 class="card-title">Marketing Analytics Dashboard</h3>
+          <p class="card-desc">
+            End-to-end e-commerce analytics system built on a MySQL database with stored
+            procedures and triggers across 13 interrelated tables. Designed a Power BI
+            dashboard tracking customer segmentation, cohort retention, and revenue
+            attribution across simulated order data.
+          </p>
+          <div class="card-tags">
+            <span class="tag" style="background:var(--accent-sql-tint);color:var(--accent-sql-text);">MySQL</span>
+            <span class="tag" style="background:var(--accent-sql-tint);color:var(--accent-sql-text);">Stored Procedures</span>
+            <span class="tag" style="background:var(--accent-sql-tint);color:var(--accent-sql-text);">Power BI</span>
+            <span class="tag" style="background:var(--accent-sql-tint);color:var(--accent-sql-text);">SQL</span>
+            <span class="tag" style="background:var(--accent-sql-tint);color:var(--accent-sql-text);">Data Modeling</span>
+          </div>
+          <div class="card-actions">
+            <a href="sql-project-details.html" class="card-link">View Details →</a>
+          </div>
+        </div>
+
+        <!-- Card 6: Global Development Patterns -->
+        <div class="project-card" style="--card-accent: var(--accent-clustering);">
+          <p class="card-role">Solo · R Course Project</p>
+          <h3 class="card-title">Global Development Patterns</h3>
+          <p class="card-desc">
+            Clustering and regression analysis on global development and environmental
+            sustainability indicators using R. Identified four distinct country groupings
+            via K-Means (k=4) on World Bank data (1990–2023) and tested relationships
+            between development stage and SDG-related outcomes.
+          </p>
+          <div class="card-tags">
+            <span class="tag" style="background:var(--accent-clustering-tint);color:var(--accent-clustering-text);">R</span>
+            <span class="tag" style="background:var(--accent-clustering-tint);color:var(--accent-clustering-text);">K-Means</span>
+            <span class="tag" style="background:var(--accent-clustering-tint);color:var(--accent-clustering-text);">Regression</span>
+            <span class="tag" style="background:var(--accent-clustering-tint);color:var(--accent-clustering-text);">ggplot2</span>
+            <span class="tag" style="background:var(--accent-clustering-tint);color:var(--accent-clustering-text);">World Bank Data</span>
+          </div>
+          <div class="card-actions">
+            <a href="project-details.html" class="card-link">View Details →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-name">Saliha Nur Gökçe</span>
+      <ul class="footer-links">
+        <li><a href="mailto:s.nurgkce@gmail.com">s.nurgkce@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/saliha-nur-gokce/" target="_blank">LinkedIn</a></li>
+        <li><a href="https://github.com/saliha-nur-gokce" target="_blank">GitHub</a></li>
+      </ul>
+      <span class="footer-copy">© 2026</span>
+    </div>
   </div>
-</div>
-
-<div class="projects-section container">
-  <h2 class="text-center mb-5">Projects</h2>
-  <div class="row g-4">
-
-    <!-- Project 1 -->
-    <div class="col-md-6 col-lg-3">
-      <div class="card h-100">
-        <img src="images/evaluation.png" class="card-img-top" alt="AI Financial Assistant">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">AI-Powered Financial Assistant</h5>
-          <p class="card-text">Modular LLM & RAG system for corporate QA using fine-tuning and retrieval-based architectures.</p>
-          <a href="roboadvisor-project-details.html" class="btn btn-primary mt-auto" target="_blank">View Details</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 2 -->
-    <div class="col-md-6 col-lg-3">
-      <div class="card h-100">
-        <img src="images/DS/secondCluster.png" class="card-img-top" alt="Development & Sustainability">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Global Development Patterns: Clustering & Regression Analysis Using R</h5>
-          <p class="card-text">Clustering and regression analysis on global development and environmental sustainability data.</p>
-          <a href="project-details.html" class="btn btn-primary mt-auto" target="_blank">View Details</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 3 -->
-    <div class="col-md-6 col-lg-3">
-      <div class="card h-100">
-        <img src="images/ML/forecasted_vs_actual_multiple.png" class="card-img-top" alt="US GDP Forecasting">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Forecasting US GDP Growth: Machine Learning vs AR Models</h5>
-          <p class="card-text">Machine learning models vs time series models for forecasting US GDP growth using tree-based models and PCA.</p>
-          <a href="mlproject-details.html" class="btn btn-primary mt-auto" target="_blank">View Details</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 4 -->
-    <div class="col-md-6 col-lg-3">
-      <div class="card h-100">
-        <img src="images/orders.png" class="card-img-top" alt="Marketing Analytics Dashboard">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Marketing Analytics Dashboard</h5>
-          <p class="card-text">Simulated e-commerce analytics system with SQL database, MySQL stored procedures and Power BI visualization.</p>
-          <a href="sql-project-details.html" class="btn btn-primary mt-auto" target="_blank">View Details</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
+</footer>
 
 </body>
 </html>

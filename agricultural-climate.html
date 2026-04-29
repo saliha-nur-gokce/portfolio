@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Climate Shocks &amp; Agricultural Prices — Saliha Nur Gökçe</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="theme-climate">
+
+<!-- Navigation -->
+<nav class="detail-nav">
+  <a href="index.html" class="back-link">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Back to Projects
+  </a>
+  <a href="index.html" class="detail-site-name">Saliha Nur Gökçe</a>
+</nav>
+
+<!-- Hero -->
+<section class="detail-hero">
+  <div class="container">
+    <span class="detail-label">Solo Research · CSSM 502 Advanced Data Analysis · Ongoing Thesis Work</span>
+    <h1 class="detail-title">Climate Shocks &amp; Agricultural Prices in Türkiye</h1>
+    <div class="detail-meta">
+      <div class="meta-item">
+        <span class="meta-key">Role</span>
+        <span class="meta-val">Solo researcher</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Period</span>
+        <span class="meta-val">2014–2024 panel data</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Tools</span>
+        <span class="meta-val">Python · Open-Meteo API · TÜİK · Gradient Boosting · Panel FE</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Status</span>
+        <span class="meta-val">Ongoing — feeding into MA thesis</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="detail-body">
+
+    <!-- Overview -->
+    <section class="detail-section">
+      <h2>Overview</h2>
+      <p>
+        This project tests whether frost events causally affect producer prices across Turkish
+        agricultural markets, using a hybrid ML + econometrics pipeline. The central design
+        challenge was that standard aggregate models mask enormous heterogeneity across crops —
+        a frost event that destroys tomato yields has a completely different price transmission
+        mechanism than one hitting dormant apple orchards in winter.
+      </p>
+      <p>
+        The analysis uses province-level panel data covering 81 Turkish provinces built via a
+        custom Python pipeline querying Open-Meteo ERA5-Land reanalysis climate data and
+        official farm gate price series from TÜİK (Turkish Statistical Institute). Prices are
+        deflated to real values using CPI (base Jan 2024) to strip out the inflationary
+        environment.
+      </p>
+    </section>
+
+    <!-- Data & Methods -->
+    <section class="detail-section">
+      <h2>Data &amp; Methods</h2>
+      <p><strong>Dependent variable:</strong> Monthly average farm gate prices (TÜİK) across
+      nine crops, deflated to real values (CPI 2003=100, base Jan 2024).</p>
+
+      <p><strong>Crop clusters</strong> — theoretically motivated groupings:</p>
+      <ul>
+        <li><strong>Perishable vegetables</strong> — tomato, pepper, eggplant (high frost sensitivity, fast price transmission)</li>
+        <li><strong>Storable fruits</strong> — apple, pear (buffered by cold storage; slower transmission)</li>
+        <li><strong>Biological controls</strong> — spinach (cold-hardy baseline), citrus, cherry, apricot (dormancy dynamics)</li>
+      </ul>
+
+      <p><strong>Climate features:</strong> frost day frequencies at −0°C to −5°C thresholds,
+      False Spring dummy, precipitation totals, maximum wind speed, humidity — all at monthly
+      resolution per province.</p>
+
+      <p><strong>Three-stage pipeline:</strong></p>
+      <ul>
+        <li><strong>Stage 1 — Binning analysis:</strong> test the linearity assumption across discrete frost intensity ranges before committing to a single threshold</li>
+        <li><strong>Stage 2 — Gradient Boosting Regressor:</strong> identify the biological tipping point (T<sub>crit</sub>) via Partial Dependence Plots; the ML-derived threshold is −0.93°C for the sensitive cluster</li>
+        <li><strong>Stage 3 — Two-Way Fixed Effects panel model:</strong> distributed lag structure at t, t−1, t−2, t−3 with city and time fixed effects to absorb unobserved province-level heterogeneity and common macro shocks</li>
+      </ul>
+    </section>
+
+    <!-- Key Findings -->
+    <section class="detail-section">
+      <h2>Key Findings</h2>
+
+      <div class="findings-grid">
+        <div class="finding-card">
+          <p class="finding-stat">+6.53%</p>
+          <p class="finding-desc">Price increase at Lag 1 in the sensitive cluster (perishables + citrus), p&lt;0.001</p>
+        </div>
+        <div class="finding-card">
+          <p class="finding-stat">+4.85%</p>
+          <p class="finding-desc">Additional effect at Lag 2, p&lt;0.01 — confirms delayed supply disruption channel</p>
+        </div>
+        <div class="finding-card">
+          <p class="finding-stat">23–47%</p>
+          <p class="finding-desc">Price shock range for perishable vegetables (tomato, pepper, eggplant) within 2 months</p>
+        </div>
+        <div class="finding-card">
+          <p class="finding-stat">0%</p>
+          <p class="finding-desc">Effect on dormant stone fruits (cherry, apricot) — biological null confirms model validity</p>
+        </div>
+        <div class="finding-card">
+          <p class="finding-stat">76.6%</p>
+          <p class="finding-desc">Share of production concentrated in coastal "Safe Havens" (Antalya region) — geography stabilizes national markets</p>
+        </div>
+      </div>
+
+      <p style="margin-top:1.5rem;">
+        The aggregate model tells a misleading story: applying a single fixed-effects specification
+        across all crops yields only marginal significance at Lag 3 (~1%, p=0.034). The signal
+        appears only when crops are stratified by their physiological frost-response mechanisms —
+        a reminder that theoretical priors should drive grouping decisions, not convenience.
+      </p>
+    </section>
+
+    <!-- Visuals -->
+    <section class="detail-section">
+      <h2>Visuals</h2>
+      <div class="visuals-grid">
+        <!-- Placeholder: add images/ag_coef_plot.png when available -->
+        <div>
+          <div class="img-placeholder">
+            images/ag_coef_plot.png<br/>
+            Figure 1 — Heterogeneous price impact by product cluster<br/>
+            (add to images/ folder)
+          </div>
+        </div>
+        <div>
+          <div class="img-placeholder">
+            images/ag_spatial_map.png<br/>
+            Figure 2 — Spatial mismatch: frost-exposed vs. production-zone provinces<br/>
+            (add to images/ folder)
+          </div>
+        </div>
+        <div>
+          <div class="img-placeholder">
+            images/ag_event_study.png<br/>
+            Figure 3 — Konya pepper event study: price path around a frost shock<br/>
+            (add to images/ folder)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Links -->
+    <section class="detail-section">
+      <h2>Links</h2>
+      <div class="project-links">
+        <p class="project-link-note">
+          Data pipeline and full code under active thesis development — no public repository yet.
+          Paper forthcoming.
+        </p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-name">Saliha Nur Gökçe</span>
+      <ul class="footer-links">
+        <li><a href="mailto:s.nurgkce@gmail.com">s.nurgkce@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/saliha-nur-gokce/" target="_blank">LinkedIn</a></li>
+        <li><a href="https://github.com/saliha-nur-gokce" target="_blank">GitHub</a></li>
+      </ul>
+      <span class="footer-copy">© 2026</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

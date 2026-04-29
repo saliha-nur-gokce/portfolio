@@ -3,115 +3,165 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>E-Commerce Marketing Analytics Dashboard</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
-  <style>
-    body { background-color: #f9f9f9; }
-    .container { max-width: 900px; padding: 40px 20px; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 12px; margin: 50px auto; }
-    img { max-width: 100%; margin: 20px 0; border-radius: 8px; }
-    h1, h2, h3 { margin-top: 30px; }
-    ul { margin-left: 20px; }
-  </style>
+  <title>Marketing Analytics Dashboard — Saliha Nur Gökçe</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
+<body class="theme-sql">
 
-<body>
+<!-- Navigation -->
+<nav class="detail-nav">
+  <a href="index.html" class="back-link">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Back to Projects
+  </a>
+  <a href="index.html" class="detail-site-name">Saliha Nur Gökçe</a>
+</nav>
+
+<!-- Hero -->
+<section class="detail-hero">
+  <div class="container">
+    <span class="detail-label">Solo · SQL + BI Project</span>
+    <h1 class="detail-title">Marketing Analytics Dashboard</h1>
+    <div class="detail-meta">
+      <div class="meta-item">
+        <span class="meta-key">Role</span>
+        <span class="meta-val">Solo — data generation, schema design, SQL automation, BI reporting</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Stack</span>
+        <span class="meta-val">Python · MySQL · Power BI · DAX</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Schema</span>
+        <span class="meta-val">13 interrelated tables with full referential integrity</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <div class="container">
+  <div class="detail-body">
 
-  <h1>E-Commerce Marketing Analytics Dashboard</h1>
+    <!-- Overview -->
+    <section class="detail-section">
+      <h2>Overview</h2>
+      <p>
+        End-to-end e-commerce analytics system built without an existing dataset — the data
+        itself was generated from scratch in Python to reflect realistic e-commerce sales
+        structures, marketing funnels, and advertising campaign dynamics. The goal was to build
+        the kind of analytics environment a growth-stage e-commerce company would actually use
+        to answer questions about customer behavior, campaign ROI, and revenue attribution.
+      </p>
+      <p>
+        The full pipeline: synthetic data generation → relational schema design in MySQL →
+        automation via stored procedures and views → Power BI dashboard with six analytical
+        pages.
+      </p>
+    </section>
 
-  <p>This project focuses on designing a full-stack marketing analytics system for a simulated e-commerce platform. We combined synthetic data generation, relational database development, SQL automation, and business intelligence reporting through Power BI.</p>
+    <!-- Schema Design -->
+    <section class="detail-section">
+      <h2>Schema Design</h2>
+      <p>
+        13 interrelated tables covering the full customer journey — from acquisition through
+        purchase to ad attribution:
+      </p>
+      <ul>
+        <li><strong>Users</strong> — demographics, signup dates, activity history</li>
+        <li><strong>Products &amp; Inventory</strong> — catalog, pricing, stock levels</li>
+        <li><strong>Orders &amp; Order Details</strong> — transactional data with order-line granularity</li>
+        <li><strong>Digital Campaigns &amp; Ads</strong> — campaign structure, budget allocation, placement types</li>
+        <li><strong>Ad Interactions</strong> — reach → click → lead → conversion funnel stages</li>
+        <li><strong>Sessions</strong> — traffic source tracking, user session mapping</li>
+        <li><strong>Ad Pricing</strong> — cost-per-placement by format and platform</li>
+      </ul>
 
-  <h2>Project Overview</h2>
+      <p>
+        All tables are connected via foreign key constraints. Data generation was calibrated
+        to reflect realistic conversion probabilities, purchase behaviors, and budget dynamics
+        rather than uniform random distributions.
+      </p>
 
-  <p>We built this system to simulate the type of marketing analytics environment typically used by e-commerce companies to monitor performance, customer behavior, and advertising effectiveness. Instead of using pre-existing datasets, we generated a fully synthetic dataset using Python, designed to reflect real-world e-commerce sales structures, marketing funnels, and advertising campaigns.</p>
+      <img src="images/ERD.jpeg" alt="Entity Relationship Diagram"/>
+      <p class="img-caption">Entity Relationship Diagram — 13-table schema</p>
+    </section>
 
-  <h2>Dataset Design</h2>
+    <!-- SQL Automation -->
+    <section class="detail-section">
+      <h2>SQL Automation</h2>
+      <p>
+        Stored procedures handle computed fields that would otherwise require repeated ad-hoc
+        queries — making the database self-maintaining as new data is inserted:
+      </p>
+      <ul>
+        <li>Total payment calculation per order (summing line items with applied discounts)</li>
+        <li>Ad budget computation: reach × placement pricing from the ad pricing table</li>
+        <li>Campaign aggregate metrics: total budget, click counts, lead counts, revenue</li>
+        <li>Funnel interaction metrics: reach → click → lead → conversion rates per campaign</li>
+      </ul>
+      <p>
+        Seven analytical <strong>views</strong> abstract the join logic for Power BI consumption:
+        user order summaries, ad performance metrics, campaign ROI calculations, funnel stage
+        indicators, revenue by product category, conversion rates by traffic source, and ad
+        efficiency rankings. The CTEs inside several views use window functions
+        (<code>ROW_NUMBER()</code>, <code>LAG()</code>) to compute cohort retention and
+        first-purchase attribution.
+      </p>
+    </section>
 
-  <p>A total of <b>13 interrelated tables</b> were designed, representing key marketing and sales activities, including:</p>
+    <!-- Power BI Dashboard -->
+    <section class="detail-section">
+      <h2>Power BI Dashboard</h2>
+      <p>Six dashboard pages, each targeting a specific business question:</p>
+      <ul>
+        <li><strong>User Insights:</strong> demographics, platform usage, city distribution, active vs. new user segmentation</li>
+        <li><strong>Products:</strong> category mix, stock levels, price distribution, low-stock alerts</li>
+        <li><strong>Orders:</strong> revenue trends, payment method breakdown, geographic revenue attribution, top-product rankings</li>
+        <li><strong>Campaigns:</strong> performance metrics, conversion rate comparisons, profitability, CTR by campaign type</li>
+        <li><strong>Ad Structure:</strong> format distribution, platform allocation, budget split, active status overview</li>
+        <li><strong>Ad Performance:</strong> full funnel metrics, click-to-lead ratios, ROAS (Return on Ad Spend), platform-level CTR benchmarks</li>
+      </ul>
 
-  <ul>
-    <li>Users (demographics, signup dates, activity history)</li>
-    <li>Products (catalog, pricing, inventory)</li>
-    <li>Orders & Order Details (transactional data)</li>
-    <li>Digital Campaigns & Ads (marketing structure)</li>
-    <li>Ad Interactions (reach, click, conversion stages)</li>
-    <li>Sessions (traffic source and user sessions)</li>
-    <li>Ad Pricing (ad placement costs)</li>
-  </ul>
+      <img src="images/orders.png" alt="Orders dashboard page — Power BI"/>
+      <p class="img-caption">Orders page — revenue trends and geographic attribution</p>
+    </section>
 
-  <p>We carefully created the dataset from scratch, ensuring realistic patterns such as proportional ad reach, conversion probabilities, purchase behaviors, and budget dynamics.</p>
+    <!-- Links -->
+    <section class="detail-section">
+      <h2>Links</h2>
+      <div class="project-links">
+        <a href="https://github.com/saliha-nur-gokce/portfolio/blob/main/notebooks/intt48o_project.sql" target="_blank" class="project-link-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          SQL Code ↗
+        </a>
+        <a href="https://docs.google.com/spreadsheets/d/1mvNAB1ntVWIGmQ0mdTdhLElj3F2bVxZT/edit?usp=sharing" target="_blank" class="project-link-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Full Dataset ↗
+        </a>
+        <a href="https://drive.google.com/file/d/1noFsE_55azERnQEKGuvohaNhRDv35T7t/view?usp=sharing" target="_blank" class="project-link-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Project Report ↗
+        </a>
+      </div>
+    </section>
 
-  <h2>Database Development</h2>
-
-  <p>The dataset was imported into <b>MySQL</b>, where we fully implemented the relational schema and referential integrity using <b>foreign key constraints</b>.</p>
-
-  <p>To automate calculations and ensure data consistency, we developed <b>stored procedures</b> to compute:</p>
-
-  <ul>
-    <li>Total payments per order</li>
-    <li>Ad budgets (based on reach and placement pricing)</li>
-    <li>Campaign budgets, clicks, leads, revenues</li>
-    <li>Funnel interaction metrics</li>
-  </ul>
-
-  <p>Additionally, we created multiple <b>views</b> to simplify reporting:</p>
-
-  <ul>
-    <li>User order summaries</li>
-    <li>Ad performance metrics</li>
-    <li>Campaign ROI calculations</li>
-    <li>Funnel stage indicators</li>
-    <li>Revenue by product category</li>
-    <li>Conversion rates by traffic source</li>
-    <li>Ad efficiency rankings</li>
-  </ul>
-
-  <h2>Business Intelligence Dashboard (Power BI)</h2>
-
-  <p>Using the finalized SQL database, we built an interactive Power BI dashboard consisting of 6 pages:</p>
-
-  <ul>
-    <li><b>User Insights:</b> Demographics, platform usage, city distributions, active/new users.</li>
-    <li><b>Products:</b> Product category distribution, stock levels, pricing, low stock alerts.</li>
-    <li><b>Orders:</b> Order trends, payment methods, revenue by city, top products.</li>
-    <li><b>Campaigns:</b> Performance metrics, conversion rates, profitability, CTR comparisons.</li>
-    <li><b>Ad Structure:</b> Ad formats, platform distribution, budget allocation, active status.</li>
-    <li><b>Ad Performance:</b> Funnel metrics, click-to-lead ratios, ROAS, platform-level CTR.</li>
-  </ul>
-
-  <p>The dashboard enables real-time analysis of user behavior, sales performance, campaign efficiency, and advertising effectiveness.</p>
-
-  <h2>Sample ERD Diagram</h2>
-  <img src="images/ERD.jpeg" alt="ERD Diagram"/>
-
-  <h2>Sample Dashboard Visualization</h2>
-  <img src="images/orders.png" alt="Power BI Screenshot"/>
-
-  <h2>Technical Stack</h2>
-
-  <ul>
-    <li><b>Data Generation:</b> Python</li>
-    <li><b>Database Development:</b> MySQL (DDL, Stored Procedures, Views)</li>
-    <li><b>Business Intelligence:</b> Power BI</li>
-    <li><b>Languages:</b> SQL, DAX, Python</li>
-  </ul>
-
-  <h2>Key Takeaways</h2>
-
-  <p>This project demonstrates the full pipeline from dataset creation to database development and business intelligence reporting for a realistic marketing use case. By combining automated SQL calculations and Power BI visualizations, we developed a scalable environment to analyze marketing KPIs and optimize business decisions.</p>
-
- <p>
-  <a href="https://github.com/saliha-nur-gokce/portfolio/blob/main/intt48o_project.sql" target="_blank">View SQL Code</a><br/>
-  <a href="https://docs.google.com/spreadsheets/d/1mvNAB1ntVWIGmQ0mdTdhLElj3F2bVxZT/edit?usp=sharing&ouid=112230555531290264018&rtpof=true&sd=true" target="_blank">View Full Dataset</a><br/>
-  <a href="https://drive.google.com/file/d/1noFsE_55azERnQEKGuvohaNhRDv35T7t/view?usp=sharing" target="_blank">View Project Report</a>
-</p>
- 
-  <div class="text-center mt-5">
-    <a href="index.html" class="btn btn-secondary">Back to Home</a>
   </div>
-
 </div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-name">Saliha Nur Gökçe</span>
+      <ul class="footer-links">
+        <li><a href="mailto:s.nurgkce@gmail.com">s.nurgkce@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/saliha-nur-gokce/" target="_blank">LinkedIn</a></li>
+        <li><a href="https://github.com/saliha-nur-gokce" target="_blank">GitHub</a></li>
+      </ul>
+      <span class="footer-copy">© 2026</span>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>

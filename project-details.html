@@ -3,98 +3,168 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Development & Sustainability Project Details</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
-  <style>
-    body { background-color: #f9f9f9; }
-    .container { max-width: 900px; padding: 40px 20px; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 12px; margin: 50px auto; }
-    img { max-width: 100%; margin: 20px 0; border-radius: 8px; }
-    h1, h2, h3 { margin-top: 30px; }
-    ul { margin-left: 20px; }
-  </style>
+  <title>Global Development Patterns — Saliha Nur Gökçe</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
+<body class="theme-clustering">
 
-<body>
+<!-- Navigation -->
+<nav class="detail-nav">
+  <a href="index.html" class="back-link">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Back to Projects
+  </a>
+  <a href="index.html" class="detail-site-name">Saliha Nur Gökçe</a>
+</nav>
+
+<!-- Hero -->
+<section class="detail-hero">
+  <div class="container">
+    <span class="detail-label">Solo · R Course Project</span>
+    <h1 class="detail-title">Global Development Patterns: Clustering &amp; Regression Analysis</h1>
+    <div class="detail-meta">
+      <div class="meta-item">
+        <span class="meta-key">Role</span>
+        <span class="meta-val">Solo researcher</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Data</span>
+        <span class="meta-val">World Bank — 200+ countries, 1990–2023</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Tools</span>
+        <span class="meta-val">R · ggplot2 · K-Means · Hierarchical Clustering · Decision Trees</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <div class="container">
+  <div class="detail-body">
 
-  <h1>Data Science Final Project Details</h1>
+    <!-- Overview -->
+    <section class="detail-section">
+      <h2>Overview</h2>
+      <p>
+        This project explores the relationship between socio-economic development and
+        environmental sustainability across 200+ countries using World Bank data spanning
+        1990–2023. The central question: do countries cluster into distinct development-environment
+        profiles, and do those profiles predict sustainability-related outcomes?
+      </p>
+      <p>
+        The analysis proceeds in two phases: an unsupervised clustering phase to identify latent
+        country groupings, and a supervised regression phase to test whether cluster membership
+        and continuous development indicators explain environmental outcomes. Decision tree
+        models are used alongside linear regression to capture non-linear relationships.
+      </p>
+    </section>
 
-  <p>This project explores the relationship between countries' levels of development and their environmental sustainability policies using a dataset spanning from 1990 to 2023, sourced from the World Bank. The dataset includes socio-economic and environmental indicators for over 200 countries. The analysis includes clustering, regression models, and decision tree algorithms to uncover both linear and non-linear relationships among these factors.</p>
+    <!-- Data & Preprocessing -->
+    <section class="detail-section">
+      <h2>Data &amp; Preprocessing</h2>
+      <p>
+        The dataset includes socio-economic indicators (GDP per capita, life expectancy, literacy,
+        urbanization) and environmental indicators (renewable energy share, fossil fuel dependence,
+        CO₂ emissions, CH₄ emissions, forest area, water stress). Missing values were imputed
+        using forward-backward filling and the MICE (Multiple Imputation by Chained Equations)
+        technique to preserve temporal structure without introducing bias.
+      </p>
+      <p>
+        Two separate clustering models were built — one on development indicators, one on
+        environmental indicators — to allow cross-tabulation and analysis of how development
+        clusters map onto environmental clusters.
+      </p>
+    </section>
 
-  <h2>Data Preprocessing and Clustering</h2>
+    <!-- Clustering -->
+    <section class="detail-section">
+      <h2>Clustering</h2>
+      <p>
+        The optimal number of clusters was determined via the elbow method applied to within-cluster
+        sum of squares. Both hierarchical clustering (Ward's linkage) and K-Means (k=4) were
+        tested; K-Means at k=4 produced more interpretable, balanced groupings.
+      </p>
+      <p><strong>Four development clusters identified:</strong></p>
+      <ul>
+        <li><strong>Cluster 1 — Developed:</strong> highest GDP per capita, life expectancy 78.02, significant renewable energy use (61.28%) alongside persistent fossil fuel dependence (47.35%)</li>
+        <li><strong>Cluster 2 / 4 — Upper-middle and transitioning:</strong> mixed renewable energy profiles with varying CO₂ and CH₄ emission levels</li>
+        <li><strong>Cluster 5 — Least developed:</strong> lowest GDP per capita ($1,854 average), minimal renewable energy (16.68%), highest fossil fuel dependence (76.41%), and extreme water stress (587.34)</li>
+      </ul>
+      <p>
+        Noteworthy finding: the most developed cluster (Cluster 1) is not the most environmentally
+        sustainable — it carries the highest absolute fossil fuel dependence alongside its renewable
+        energy lead, reflecting the energy-intensity of developed economies.
+      </p>
 
-  <p>The dataset underwent extensive cleaning and organization, where missing values were imputed using different methods such as forward-backward filling and the MICE technique. After preprocessing, cluster analysis was applied using both hierarchical clustering and k-means, with the optimal number of clusters determined via the elbow method. Four clusters were identified, representing developed, less developed, developing, and upper-middle-income countries.</p>
+      <div class="visuals-grid">
+        <div>
+          <img src="images/DS/secondCluster.png" alt="Development cluster visualization"/>
+          <p class="img-caption">Development cluster distribution</p>
+        </div>
+        <div>
+          <img src="images/DS/thirdCluster.png" alt="Environmental cluster visualization"/>
+          <p class="img-caption">Environmental cluster distribution</p>
+        </div>
+      </div>
+    </section>
 
-  <h3>Cluster Analysis Visualization</h3>
+    <!-- Regression & Decision Trees -->
+    <section class="detail-section">
+      <h2>Regression &amp; Decision Trees</h2>
+      <p>
+        Multiple regression models tested whether GDP per capita, fossil fuel use, and renewable
+        energy share predict CO₂ emissions, controlling for cluster membership. Key correlation
+        findings: weak GDP–fossil fuel relationship (r=0.15), moderate GDP–renewable energy
+        relationship (r=−0.33), moderate CO₂–CH₄ overlap (r=0.28), reflecting the distinct
+        origins of industrial vs. agricultural emissions.
+      </p>
+      <p>
+        Decision trees were used to model the non-linear decision boundaries between
+        sustainability outcomes. Pruning via cross-validated cost-complexity was applied to
+        prevent overfitting — the pruned tree trades some training accuracy for better
+        generalization and interpretability.
+      </p>
 
-  <p>It is believed that the initial clustering model may not have produced accurate results because the number of clusters was fixed at (k = 3), which did not fully align with the outcome of the elbow method. To address this, the elbow method was adjusted to identify the optimal cluster size (k = 4), ensuring that the natural structure of the data was better reflected in the clustering process. Additionally, the initial cluster model included too many variables, potentially leading to redundancy and imbalance. To mitigate this, the number of variables was reduced by focusing on key economic indicators. These adjustments aimed to prevent over- or under-clustering, resulting in more balanced and meaningful groupings.</p>
+      <div class="visuals-grid">
+        <div>
+          <img src="images/DS/prunedDecisionTree.png" alt="Pruned decision tree"/>
+          <p class="img-caption">Pruned decision tree — sustainability outcome classification</p>
+        </div>
+        <div>
+          <img src="images/DS/AUC.png" alt="AUC curves for decision tree"/>
+          <p class="img-caption">AUC evaluation — pruned decision tree</p>
+        </div>
+      </div>
+    </section>
 
-  <h3>Cluster Analysis Process</h3>
+    <!-- Links -->
+    <section class="detail-section">
+      <h2>Links</h2>
+      <div class="project-links">
+        <a href="https://github.com/saliha-nur-gokce/portfolio/blob/main/notebooks/finalProject.ipynb" target="_blank" class="project-link-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          View Code ↗
+        </a>
+      </div>
+    </section>
 
-  <p>In this cluster analysis, separate clusters were created for environmental and development indicators to demonstrate the relationship between the two contexts. The appropriate number of clusters was determined using the elbow method, and the relationship between the clusters was observed using the correlation matrix. The correlation matrix revealed that:</p>
-
-  <ul>
-    <li>Highly developed countries (Dev_Cluster 1) are concentrated in environmentally moderate or industrialized clusters.</li>
-    <li>Developing countries (Dev_Cluster 2 and 3) show varying levels of environmental performance.</li>
-    <li>Lower development clusters (Dev_Cluster 3) are associated with higher environmental stress.</li>
-  </ul>
-
-  <p>The correlation analysis highlighted weak relationships between GDP per capita and fossil fuel use (0.15) or renewable energy (-0.33), pointing to diverse energy strategies. Moderate overlaps in CO2 and CH4 emissions (0.28) reflected the impacts of industrial and agricultural activities.</p>
-
-  <h3>Key Observations from Cluster Analysis</h3>
-
-  <p>This cluster analysis uncovered distinct patterns between environmental sustainability and socio-economic development across the clusters:</p>
-
-  <ul>
-    <li><b>Developed countries (Cluster 1):</b> highest renewable energy use (61.28%), GDP per capita, life expectancy (78.02), but significant fossil fuel dependence (47.35%).</li>
-    <li><b>Less developed countries (Cluster 5):</b> low renewable energy use (16.68%), high fossil fuel dependence (76.41%), severe water stress (587.34), low GDP per capita ($1,854.16).</li>
-    <li><b>Transition clusters (3 and 4):</b> mixed renewable energy use with varying environmental pressures.</li>
-  </ul>
-
-  <p>These findings suggest that developed countries are not in an ideal position regarding their sustainability policies. Special policies may be needed to enhance sustainability and address inequalities between development stages.</p>
-
-  <h3>Environmental Cluster Ranking</h3>
-
-  <p>When mapped, the environmental clusters rank as:</p>
-
-  <ul>
-    <li><b>Cluster 1:</b> Most sustainable: highest renewable energy (61.28%), lowest fossil fuel (47.35%), minimal water stress, largest forest area.</li>
-    <li><b>Clusters 4 & 2:</b> Moderate sustainability.</li>
-    <li><b>Cluster 3:</b> Higher emissions, moderate water stress.</li>
-    <li><b>Cluster 5:</b> Worst sustainability: lowest renewable energy, highest fossil fuel dependency, extreme water stress, minimal forest area.</li>
-  </ul>
-
-  <img src="images/DS/secondCluster.png" alt="Development Cluster"/>
-  <img src="images/DS/thirdCluster.png" alt="Environmental Cluster"/>
-
-  <h3>Unexpected Findings</h3>
-
-  <p>Some African and Asian countries appeared in the best environmental cluster, potentially due to data gaps and imputation methods. Most developed countries appeared in clusters 2 and 4, as expected.</p>
-
-  <h2>Regression and Decision Tree Models</h2>
-
-  <p>Multiple regression models were used for linear relationships, while decision trees captured non-linear interactions. Pruning was applied to prevent overfitting and aid interpretation.</p>
-
-  <img src="images/DS/prunedDecisionTree.png" alt="Pruned Decision Tree"/>
-
-  <h2>AUC for Pruned Decision Tree</h2>
-
-  <p>AUC scores evaluated predictive performance of the decision trees.</p>
-
-  <img src="images/DS/AUC.png" alt="AUC for Pruned Decision Tree"/>
-
-  <h2>Conclusion</h2>
-
-  <p>This project analyzed development and environmental sustainability across 200+ countries over 30 years. Despite limitations in linear modeling and cluster overlaps, valuable non-linear insights emerged through decision tree models. The findings highlight the complexity of socio-economic and environmental relationships and the need for better data and more advanced models.</p>
-
-  <p><a href="https://github.com/saliha-nur-gokce/portfolio/blob/main/finalProject.ipynb" target="_blank">View Project Codes</a></p>
-
-  <div class="text-center mt-5">
-    <a href="index.html" class="btn btn-secondary">Back to Home</a>
   </div>
-
 </div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-name">Saliha Nur Gökçe</span>
+      <ul class="footer-links">
+        <li><a href="mailto:s.nurgkce@gmail.com">s.nurgkce@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/saliha-nur-gokce/" target="_blank">LinkedIn</a></li>
+        <li><a href="https://github.com/saliha-nur-gokce" target="_blank">GitHub</a></li>
+      </ul>
+      <span class="footer-copy">© 2026</span>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>

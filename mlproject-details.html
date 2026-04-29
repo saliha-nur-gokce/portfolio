@@ -3,115 +3,199 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Machine Learning Final Project Details</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
-  <style>
-    body { background-color: #f9f9f9; }
-    .container { max-width: 900px; padding: 40px 20px; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 12px; margin: 50px auto; }
-    img { max-width: 100%; margin: 20px 0; border-radius: 8px; }
-    h1, h2, h3 { margin-top: 30px; }
-    ul { margin-left: 20px; }
-  </style>
+  <title>Forecasting US GDP Growth — Saliha Nur Gökçe</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
+<body class="theme-gdp">
 
-<body>
+<!-- Navigation -->
+<nav class="detail-nav">
+  <a href="index.html" class="back-link">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Back to Projects
+  </a>
+  <a href="index.html" class="detail-site-name">Saliha Nur Gökçe</a>
+</nav>
+
+<!-- Hero -->
+<section class="detail-hero">
+  <div class="container">
+    <span class="detail-label">Solo · ML Course Project</span>
+    <h1 class="detail-title">Forecasting US GDP Growth: Machine Learning vs. AR Models</h1>
+    <div class="detail-meta">
+      <div class="meta-item">
+        <span class="meta-key">Role</span>
+        <span class="meta-val">Solo researcher</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Data</span>
+        <span class="meta-val">FRED — 21 macroeconomic indicators, 1970Q1–2020Q1</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Tools</span>
+        <span class="meta-val">Python · Scikit-learn · SHAP · PCA</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Evaluation</span>
+        <span class="meta-val">Train: 1970Q1–2012Q4 · Test: 2013Q1–2020Q1</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <div class="container">
+  <div class="detail-body">
 
-  <h1>Machine Learning Final Project Details</h1>
+    <!-- Overview -->
+    <section class="detail-section">
+      <h2>Overview</h2>
+      <p>
+        This project compares the predictive accuracy of tree-based machine learning models
+        against a traditional autoregressive baseline for quarterly US GDP growth forecasting.
+        The dataset contains 21 macroeconomic indicators from the Federal Reserve Economic Data
+        (FRED) spanning 1970Q1 to 2020Q1, including inflation, private investment, unemployment,
+        current account balance, labor productivity, and public debt.
+      </p>
+      <p>
+        The primary research question is whether non-linear models that can capture interaction
+        effects between macro variables meaningfully outperform a well-specified AR(4) baseline.
+        The answer is yes, but by how much — and which features drive the improvement — is the
+        more interesting story.
+      </p>
+    </section>
 
-  <p>This project analyzes the predictive power of <b>machine learning models</b> for forecasting <b>quarterly U.S. GDP growth</b>, comparing them with the traditional <b>Autoregressive (AR(4)) model</b>. Additionally, it examines the impact of key economic indicators on GDP growth, assessing their positive or negative influence. The dataset includes macroeconomic variables from the <b>Federal Reserve Economic Data (FRED)</b>, covering the period from <b>1970Q1 to 2020Q1</b>.</p>
+    <!-- Data & Feature Selection -->
+    <section class="detail-section">
+      <h2>Data &amp; Feature Selection</h2>
+      <p>
+        Feature importance was ranked using both Random Forest and Gradient Boosting
+        permutation importance, with PCA applied separately to reduce the 21-variable feature
+        space while preserving explained variance. The correlation matrix revealed meaningful
+        multicollinearity among inflation-related indicators, motivating the PCA step.
+      </p>
+      <p><strong>Top features by both methods:</strong> private investment change, labor
+      productivity, inflation rate. Unemployment and public debt carry negative effects
+      consistent with economic theory.</p>
 
-  <h2>Data and Feature Selection</h2>
+      <div class="visuals-grid">
+        <div>
+          <img src="images/ML/correlation_matrix.png" alt="Correlation matrix of macroeconomic features"/>
+          <p class="img-caption">Correlation matrix — 21 macroeconomic features</p>
+        </div>
+        <div>
+          <img src="images/ML/Random Forest_feature_importance.png" alt="Random Forest feature importance"/>
+          <p class="img-caption">Feature importance — Random Forest</p>
+        </div>
+        <div>
+          <img src="images/ML/Gradient Boosting_feature_importance.png" alt="Gradient Boosting feature importance"/>
+          <p class="img-caption">Feature importance — Gradient Boosting</p>
+        </div>
+        <div>
+          <img src="images/ML/pca_explained_variance.png" alt="PCA explained variance"/>
+          <p class="img-caption">PCA explained variance</p>
+        </div>
+      </div>
+    </section>
 
-  <p>The dataset consists of <b>21 economic indicators</b>, including inflation, private investment, unemployment rate, and current account balance. To improve predictive accuracy, we conducted <b>feature selection</b> using <b>Random Forest (RF)</b> and <b>Gradient Boosting (GB)</b>, ranking the most influential features based on their impact on GDP growth. <b>Principal Component Analysis (PCA)</b> was also applied to reduce dimensionality while preserving essential information.</p>
+    <!-- Models & Performance -->
+    <section class="detail-section">
+      <h2>Models &amp; Performance</h2>
+      <p>Three models trained on 1970Q1–2012Q4 and tested out-of-sample on 2013Q1–2020Q1:</p>
+      <ul>
+        <li><strong>AR(4) baseline:</strong> four lags of GDP growth — the standard econometric benchmark. Test MSE: 0.157</li>
+        <li><strong>Random Forest:</strong> ensemble of 100 decision trees with bootstrap aggregation. Test MSE: 0.120 — 24% improvement over AR(4)</li>
+        <li><strong>Gradient Boosting:</strong> sequential boosting on residuals. Test MSE: 0.113 — 28% improvement, best overall</li>
+      </ul>
 
-  <p>To examine the relationships between these features, we computed the <b>correlation matrix</b>:</p>
+      <div class="findings-grid">
+        <div class="finding-card">
+          <p class="finding-stat">0.113</p>
+          <p class="finding-desc">Gradient Boosting test MSE — best out-of-sample accuracy</p>
+        </div>
+        <div class="finding-card">
+          <p class="finding-stat">−28%</p>
+          <p class="finding-desc">MSE reduction vs. AR(4) baseline (0.157 → 0.113)</p>
+        </div>
+        <div class="finding-card">
+          <p class="finding-stat">−24%</p>
+          <p class="finding-desc">MSE reduction for Random Forest (0.157 → 0.120)</p>
+        </div>
+      </div>
+    </section>
 
-  <img src="images/ML/correlation_matrix.png" alt="Correlation Matrix"/>
+    <!-- SHAP & Interpretation -->
+    <section class="detail-section">
+      <h2>SHAP Analysis &amp; Model Interpretation</h2>
+      <p>
+        SHAP (SHapley Additive exPlanations) values decompose each prediction into individual
+        feature contributions, enabling model-level interpretation beyond global feature
+        importance rankings.
+      </p>
+      <ul>
+        <li><strong>Private investment change:</strong> strongest positive contributor — a 1 SD increase corresponds to a meaningful upward revision in the GDP forecast</li>
+        <li><strong>Labor productivity:</strong> second most influential positive driver</li>
+        <li><strong>Unemployment rate &amp; public debt:</strong> consistently negative SHAP values, aligning with Keynesian and fiscal theory predictions</li>
+      </ul>
 
-  <p>Feature importance via RF and GB:</p>
+      <div class="visuals-grid">
+        <div>
+          <img src="images/ML/shap_summary_dot_RandomForest.png" alt="SHAP summary — Random Forest"/>
+          <p class="img-caption">SHAP beeswarm — Random Forest</p>
+        </div>
+        <div>
+          <img src="images/ML/shap_summary_dot_GradientBoosting.png" alt="SHAP summary — Gradient Boosting"/>
+          <p class="img-caption">SHAP beeswarm — Gradient Boosting</p>
+        </div>
+      </div>
+    </section>
 
-  <div class="row text-center">
-    <div class="col-md-6"><img src="images/ML/Random Forest_feature_importance.png" alt="RF Feature Importance"/></div>
-    <div class="col-md-6"><img src="images/ML/Gradient Boosting_feature_importance.png" alt="GB Feature Importance"/></div>
+    <!-- Forecasting Visuals -->
+    <section class="detail-section">
+      <h2>Forecast Visualizations</h2>
+      <div class="visuals-grid">
+        <div>
+          <img src="images/ML/forecasted_vs_actual_multiple.png" alt="Forecasted vs. actual GDP growth"/>
+          <p class="img-caption">Predicted vs. actual GDP growth — all three models</p>
+        </div>
+        <div>
+          <img src="images/ML/kde_subplots_common_top6.png" alt="KDE distributions of top features by growth period"/>
+          <p class="img-caption">Feature distributions by GDP growth regime</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Links -->
+    <section class="detail-section">
+      <h2>Links</h2>
+      <div class="project-links">
+        <a href="https://drive.google.com/file/d/1decAKDOtMaB4cRprLFqndsPNoqnHslRR/view?usp=sharing" target="_blank" class="project-link-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Project Paper ↗
+        </a>
+        <a href="https://github.com/saliha-nur-gokce/portfolio/blob/main/notebooks/EC48E_FinalAssignment.ipynb" target="_blank" class="project-link-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          View Code ↗
+        </a>
+      </div>
+    </section>
+
   </div>
-
-  <h2>Machine Learning Models and Benchmarking</h2>
-
-  <p>The analysis compares three models:</p>
-  <ul>
-    <li><b>AR(4):</b> baseline autoregressive model.</li>
-    <li><b>Random Forest:</b> ensemble learning using averaged decision trees.</li>
-    <li><b>Gradient Boosting:</b> sequential model improving via prediction errors.</li>
-  </ul>
-
-  <p>Models trained on 1970Q1–2012Q4; tested on 2013Q1–2020Q1 using <b>Mean Squared Error (MSE)</b>.</p>
-
-  <h2>Model Performance and Key Findings</h2>
-
-  <ul>
-    <li><b>Gradient Boosting:</b> best test MSE (0.113), followed by RF (0.120), AR(4) worst (0.157).</li>
-    <li><b>RF and GB:</b> better adaptation to sudden changes.</li>
-    <li><b>Key features:</b> private investment change, labor productivity, inflation.</li>
-  </ul>
-
-  <h2>Model Interpretation and SHAP Analysis</h2>
-
-  <p>SHAP results:</p>
-
-  <ul>
-    <li><b>Private investment change:</b> strongest positive effect.</li>
-    <li><b>Labor productivity:</b> key growth driver.</li>
-    <li><b>Unemployment & public debt:</b> negative impact.</li>
-  </ul>
-
-  <div class="row text-center">
-    <div class="col-md-6"><img src="images/ML/shap_summary_dot_RandomForest.png" alt="RF SHAP Summary"/></div>
-    <div class="col-md-6"><img src="images/ML/shap_summary_dot_GradientBoosting.png" alt="GB SHAP Summary"/></div>
-  </div>
-
-  <h2>Forecasting and Visualizations</h2>
-
-  <p>Forecast comparisons:</p>
-
-  <ul>
-    <li><b>AR(4):</b> struggles with GDP volatility.</li>
-    <li><b>RF & GB:</b> better tracking of fluctuations.</li>
-  </ul>
-
-  <img src="images/ML/forecasted_vs_actual_multiple.png" alt="Forecast vs Actual"/>
-
-  <p>Density plots for top 5 features by growth periods:</p>
-
-  <img src="images/ML/kde_subplots_common_top6.png" alt="Density Plots"/>
-
-  <h2>Limitations and Future Work</h2>
-
-  <ul>
-    <li>Moderate prediction accuracy.</li>
-    <li>Inclusion of alternative data sources may help.</li>
-    <li>Neural networks and deep learning worth testing.</li>
-    <li>Geopolitical/trade data could enhance models.</li>
-    <li>Time-series cross-validation recommended.</li>
-  </ul>
-
-  <h2>Conclusion</h2>
-
-  <p>This project shows that <b>machine learning models significantly outperform traditional econometric methods</b> in GDP forecasting. <b>Gradient Boosting</b> achieved superior accuracy and better captured non-linear relationships, while <b>SHAP analysis and KDE visualizations</b> offered valuable feature-level insights.</p>
-
-  <p>While improvements remain possible, machine learning proves highly promising for adaptive economic forecasting.</p>
-
-  <p>
-    <a href="https://drive.google.com/file/d/1decAKDOtMaB4cRprLFqndsPNoqnHslRR/view?usp=sharing" target="_blank">View Project Paper for More Detail</a><br/>
-    <a href="https://github.com/saliha-nur-gokce/portfolio/blob/main/EC48E_FinalAssignment.ipynb" target="_blank">View Project Codes</a>
-  </p>
-
-  <div class="text-center mt-5">
-    <a href="index.html" class="btn btn-secondary">Back to Home</a>
-  </div>
-
 </div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-name">Saliha Nur Gökçe</span>
+      <ul class="footer-links">
+        <li><a href="mailto:s.nurgkce@gmail.com">s.nurgkce@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/saliha-nur-gokce/" target="_blank">LinkedIn</a></li>
+        <li><a href="https://github.com/saliha-nur-gokce" target="_blank">GitHub</a></li>
+      </ul>
+      <span class="footer-copy">© 2026</span>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Hidden Geography of Wildfire Displacement — Saliha Nur Gökçe</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="theme-wildfire">
+
+<!-- Navigation -->
+<nav class="detail-nav">
+  <a href="index.html" class="back-link">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Back to Projects
+  </a>
+  <a href="index.html" class="detail-site-name">Saliha Nur Gökçe</a>
+</nav>
+
+<!-- Hero -->
+<section class="detail-hero">
+  <div class="container">
+    <span class="detail-label">Team of 3 · 1st Place, KU Datathon 2026 · SDG 13</span>
+    <h1 class="detail-title">The Hidden Geography of Wildfire Displacement</h1>
+    <div class="detail-meta">
+      <div class="meta-item">
+        <span class="meta-key">Team</span>
+        <span class="meta-val">Saliha Nur Gökçe, Ahsen Neva Atik, Yunus Emre Gündoğmuş</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">My Role</span>
+        <span class="meta-val">Data integration, regression analysis, PCA + clustering design, presentation</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Coverage</span>
+        <span class="meta-val">1,648 events · 87 countries · 2019–2024</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Tools</span>
+        <span class="meta-val">Python · NASA FIRMS API · Plotly Dash · AWS EC2</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="detail-body">
+
+    <!-- Overview -->
+    <section class="detail-section">
+      <h2>Overview</h2>
+      <p>
+        Multi-source event-level analysis of 1,648 wildfire displacement events across 87
+        countries (2019–2024). The central question: does fire intensity — measured via
+        NASA FIRMS Fire Radiative Power (FRP) — predict who gets displaced? The answer:
+        barely. Fire size explains roughly 10% of displacement variance globally.
+      </p>
+      <p>
+        The more telling finding is what happens when you disaggregate by income group. The
+        FRP–displacement correlation <em>inverts</em> in low-income countries (ρ = −0.31),
+        meaning larger fires are associated with <em>fewer</em> reported displacements there.
+        This is not a damage signal — it is a reporting-capacity signal. Countries with weaker
+        displacement monitoring systems systematically under-report events regardless of fire
+        severity.
+      </p>
+    </section>
+
+    <!-- Data Sources -->
+    <section class="detail-section">
+      <h2>Data Sources</h2>
+      <ul>
+        <li><strong>IDMC GIDD</strong> — wildfire displacement events (displacement counts, dates, coordinates)</li>
+        <li><strong>NASA FIRMS API</strong> — Fire Radiative Power (FRP) and hotspot counts, fetched via FIRMS area API, matched to each IDMC event by a ±5-day date window and geocoded bounding box</li>
+        <li><strong>ND-GAIN Country Index</strong> — adaptive capacity and vulnerability scores per country</li>
+        <li><strong>World Bank</strong> — GDP per capita, population</li>
+        <li><strong>EM-DAT (CRED)</strong> — economic damage (available for 35 of 87 countries)</li>
+      </ul>
+    </section>
+
+    <!-- Methods -->
+    <section class="detail-section">
+      <h2>Methods</h2>
+      <ul>
+        <li><strong>Event-level integration:</strong> geocoded IDMC records joined to FIRMS API output using a spatial bounding box and temporal window; enriched with ND-GAIN and World Bank country-level indicators</li>
+        <li><strong>Correlation analysis:</strong> Spearman and Pearson correlations computed globally and stratified by World Bank income group to test whether the FRP–displacement relationship is stable</li>
+        <li><strong>Log-log OLS with fixed effects:</strong> country and year FEs, R² = 0.17 — confirms that structural country characteristics absorb most displacement variance, not fire intensity itself</li>
+        <li><strong>PCA:</strong> 6 variables compressed to two principal components — PC1 captures wildfire exposure (44% of variance), PC2 captures adaptive capacity (32%)</li>
+        <li><strong>K-Means clustering (K=4, silhouette=0.277):</strong> identifies country risk profiles from the PCA space</li>
+        <li><strong>Composite risk scoring:</strong> original ND-GAIN vulnerability weights revised to down-weight the reporting-biased FRP signal in low-income contexts</li>
+      </ul>
+    </section>
+
+    <!-- Key Findings -->
+    <section class="detail-section">
+      <h2>Key Findings</h2>
+
+      <div class="findings-grid">
+        <div class="finding-card">
+          <p class="finding-stat">ρ = 0.32</p>
+          <p class="finding-desc">FRP max is the strongest predictor globally (p&lt;0.001), but explains only ~10% of displacement variance</p>
+        </div>
+        <div class="finding-card">
+          <p class="finding-stat">ρ = −0.31</p>
+          <p class="finding-desc">FRP–displacement correlation <em>inverts</em> in low-income countries — large fires, almost no reported displacement</p>
+        </div>
+        <div class="finding-card">
+          <p class="finding-stat">R² = 0.17</p>
+          <p class="finding-desc">Log-log OLS with country + year FEs — structural factors, not fire intensity, drive displacement patterns</p>
+        </div>
+        <div class="finding-card">
+          <p class="finding-stat">28</p>
+          <p class="finding-desc">Countries in the "high-exposure, low-capacity" cluster: Syria, Sudan, Nepal, Somalia — under-reported, not low-risk</p>
+        </div>
+      </div>
+
+      <p style="margin-top:1.5rem;">
+        The ND-GAIN re-weighting shifts Sub-Saharan Africa and MENA countries significantly up
+        in risk rankings when reporting capacity is accounted for:
+        <strong>Syria ▲14, Sudan ▲24, Somalia ▲24</strong> positions. The standard fire-intensity
+        lens misclassifies the most vulnerable populations as low-risk because it mistakes
+        silence in the data for safety.
+      </p>
+    </section>
+
+    <!-- Visuals -->
+    <section class="detail-section">
+      <h2>Visuals</h2>
+      <div class="visuals-grid">
+        <div>
+          <img src="images/tables_and_graphs_datathon/plot2_frp_vs_displacement.png" alt="FRP vs. Displacement scatter by income group"/>
+          <p class="img-caption">FRP vs. displacement — correlation by income group</p>
+        </div>
+        <div>
+          <img src="images/tables_and_graphs_datathon/plot3_quintile_income.png" alt="Displacement by income quintile"/>
+          <p class="img-caption">Displacement counts by income quintile</p>
+        </div>
+        <div>
+          <img src="images/tables_and_graphs_datathon/plot_pca_final.png" alt="PCA biplot — wildfire exposure vs. adaptive capacity"/>
+          <p class="img-caption">PCA biplot: PC1 (exposure) vs. PC2 (adaptive capacity)</p>
+        </div>
+        <div>
+          <img src="images/tables_and_graphs_datathon/plot_cluster1_table.png" alt="K-Means cluster profiles"/>
+          <p class="img-caption">K-Means cluster profiles (K=4)</p>
+        </div>
+        <div>
+          <img src="images/tables_and_graphs_datathon/plot_slope_risk_revision.png" alt="Risk score revision after ND-GAIN re-weighting"/>
+          <p class="img-caption">Risk rank shifts after ND-GAIN re-weighting</p>
+        </div>
+        <div>
+          <img src="images/tables_and_graphs_datathon/option_b_vulnerability_filter.png" alt="Vulnerability filter — high-exposure, low-capacity countries"/>
+          <p class="img-caption">High-exposure, low-capacity country identification</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Links -->
+    <section class="detail-section">
+      <h2>Links</h2>
+      <div class="project-links">
+        <a href="http://16.170.218.212:8050/" target="_blank" class="project-link-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Live Dashboard ↗
+        </a>
+        <p class="project-link-note">Built with Plotly Dash, deployed on AWS EC2. May require a moment to load.</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-name">Saliha Nur Gökçe</span>
+      <ul class="footer-links">
+        <li><a href="mailto:s.nurgkce@gmail.com">s.nurgkce@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/saliha-nur-gokce/" target="_blank">LinkedIn</a></li>
+        <li><a href="https://github.com/saliha-nur-gokce" target="_blank">GitHub</a></li>
+      </ul>
+      <span class="footer-copy">© 2026</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

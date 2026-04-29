@@ -63,6 +63,8 @@
         deflated to real values using CPI (base Jan 2024) to strip out the inflationary
         environment.
       </p>
+      <img src="images/ag_spatial_map.png" alt="Spatial mismatch: frost-exposed vs. production-zone provinces"/>
+      <p class="img-caption">Figure 2 — Spatial mismatch: frost-exposed vs. production-zone provinces</p>
     </section>
 
     <!-- Data & Methods -->
@@ -117,41 +119,17 @@
         </div>
       </div>
 
+      <img src="images/ag_coef_plot.png" alt="Heterogeneous price impact by product cluster" style="margin-top:1.25rem;"/>
+      <p class="img-caption">Figure 1 — Heterogeneous price impact by product cluster</p>
+
       <p style="margin-top:1.5rem;">
         The aggregate model tells a misleading story: applying a single fixed-effects specification
         across all crops yields only marginal significance at Lag 3 (~1%, p=0.034). The signal
         appears only when crops are stratified by their physiological frost-response mechanisms —
         a reminder that theoretical priors should drive grouping decisions, not convenience.
       </p>
-    </section>
-
-    <!-- Visuals -->
-    <section class="detail-section">
-      <h2>Visuals</h2>
-      <div class="visuals-grid">
-        <!-- Placeholder: add images/ag_coef_plot.png when available -->
-        <div>
-          <div class="img-placeholder">
-            images/ag_coef_plot.png<br/>
-            Figure 1 — Heterogeneous price impact by product cluster<br/>
-            (add to images/ folder)
-          </div>
-        </div>
-        <div>
-          <div class="img-placeholder">
-            images/ag_spatial_map.png<br/>
-            Figure 2 — Spatial mismatch: frost-exposed vs. production-zone provinces<br/>
-            (add to images/ folder)
-          </div>
-        </div>
-        <div>
-          <div class="img-placeholder">
-            images/ag_event_study.png<br/>
-            Figure 3 — Konya pepper event study: price path around a frost shock<br/>
-            (add to images/ folder)
-          </div>
-        </div>
-      </div>
+      <img src="images/ag_event_study.png" alt="Konya pepper event study: price path around a frost shock" style="margin-top:1.25rem;"/>
+      <p class="img-caption">Figure 3 — Konya pepper event study: price path around a frost shock</p>
     </section>
 
     <!-- Links -->
@@ -183,5 +161,23 @@
   </div>
 </footer>
 
+
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close">&times;</button>
+  <img id="lightbox-img" src="" alt=""/>
+</div>
+<script>
+(function() {
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightbox-img');
+  function open(src, alt) { lbImg.src = src; lbImg.alt = alt; lb.classList.add('active'); document.body.style.overflow = 'hidden'; }
+  function close() { lb.classList.remove('active'); document.body.style.overflow = ''; }
+  lb.addEventListener('click', function(e) { if (e.target === lb || e.target.id === 'lightbox-close') close(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close(); });
+  document.querySelectorAll('.detail-section img').forEach(function(el) {
+    el.addEventListener('click', function() { open(el.src, el.alt); });
+  });
+})();
+</script>
 </body>
 </html>

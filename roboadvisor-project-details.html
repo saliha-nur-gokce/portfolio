@@ -24,7 +24,11 @@
     <h1 class="detail-title">Structured Financial QA with LLMs: Fine-Tuning vs. Code-Augmented Retrieval</h1>
     <div class="detail-meta">
       <div class="meta-item">
-        <span class="meta-key">Role</span>
+        <span class="meta-key">Team</span>
+        <span class="meta-val">Alperen Çağlayan · Saliha Nur Gökçe · Değer Ayata</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">My Role</span>
         <span class="meta-val">Co-author — RAG pipeline design, ragenh architecture, evaluation framework</span>
       </div>
       <div class="meta-item">
@@ -156,5 +160,23 @@
   </div>
 </footer>
 
+
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close">&times;</button>
+  <img id="lightbox-img" src="" alt=""/>
+</div>
+<script>
+(function() {
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightbox-img');
+  function open(src, alt) { lbImg.src = src; lbImg.alt = alt; lb.classList.add('active'); document.body.style.overflow = 'hidden'; }
+  function close() { lb.classList.remove('active'); document.body.style.overflow = ''; }
+  lb.addEventListener('click', function(e) { if (e.target === lb || e.target.id === 'lightbox-close') close(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close(); });
+  document.querySelectorAll('.detail-section img, .visuals-grid img').forEach(function(el) {
+    el.addEventListener('click', function() { open(el.src, el.alt); });
+  });
+})();
+</script>
 </body>
 </html>

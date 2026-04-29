@@ -63,6 +63,8 @@
         displacement monitoring systems systematically under-report events regardless of fire
         severity.
       </p>
+      <img src="images/tables_and_graphs_datathon/plot1_normalized_displacement.png" alt="Normalized wildfire displacement by country" style="margin-top:1.25rem;"/>
+      <p class="img-caption">Normalized wildfire displacement — country-level overview (2019–2024)</p>
     </section>
 
     <!-- Data Sources -->
@@ -88,6 +90,16 @@
         <li><strong>K-Means clustering (K=4, silhouette=0.277):</strong> identifies country risk profiles from the PCA space</li>
         <li><strong>Composite risk scoring:</strong> original ND-GAIN vulnerability weights revised to down-weight the reporting-biased FRP signal in low-income contexts</li>
       </ul>
+      <div class="visuals-grid" style="margin-top:1.25rem;">
+        <div>
+          <img src="images/tables_and_graphs_datathon/plot_pca_final.png" alt="PCA biplot — wildfire exposure vs. adaptive capacity"/>
+          <p class="img-caption">PCA biplot: PC1 (exposure) vs. PC2 (adaptive capacity)</p>
+        </div>
+        <div>
+          <img src="images/tables_and_graphs_datathon/plot_cluster1_table.png" alt="K-Means cluster profiles"/>
+          <p class="img-caption">K-Means cluster profiles (K=4)</p>
+        </div>
+      </div>
     </section>
 
     <!-- Key Findings -->
@@ -113,19 +125,7 @@
         </div>
       </div>
 
-      <p style="margin-top:1.5rem;">
-        The ND-GAIN re-weighting shifts Sub-Saharan Africa and MENA countries significantly up
-        in risk rankings when reporting capacity is accounted for:
-        <strong>Syria ▲14, Sudan ▲24, Somalia ▲24</strong> positions. The standard fire-intensity
-        lens misclassifies the most vulnerable populations as low-risk because it mistakes
-        silence in the data for safety.
-      </p>
-    </section>
-
-    <!-- Visuals -->
-    <section class="detail-section">
-      <h2>Visuals</h2>
-      <div class="visuals-grid">
+      <div class="visuals-grid" style="margin-top:1.25rem;">
         <div>
           <img src="images/tables_and_graphs_datathon/plot2_frp_vs_displacement.png" alt="FRP vs. Displacement scatter by income group"/>
           <p class="img-caption">FRP vs. displacement — correlation by income group</p>
@@ -134,23 +134,17 @@
           <img src="images/tables_and_graphs_datathon/plot3_quintile_income.png" alt="Displacement by income quintile"/>
           <p class="img-caption">Displacement counts by income quintile</p>
         </div>
-        <div>
-          <img src="images/tables_and_graphs_datathon/plot_pca_final.png" alt="PCA biplot — wildfire exposure vs. adaptive capacity"/>
-          <p class="img-caption">PCA biplot: PC1 (exposure) vs. PC2 (adaptive capacity)</p>
-        </div>
-        <div>
-          <img src="images/tables_and_graphs_datathon/plot_cluster1_table.png" alt="K-Means cluster profiles"/>
-          <p class="img-caption">K-Means cluster profiles (K=4)</p>
-        </div>
-        <div>
-          <img src="images/tables_and_graphs_datathon/plot_slope_risk_revision.png" alt="Risk score revision after ND-GAIN re-weighting"/>
-          <p class="img-caption">Risk rank shifts after ND-GAIN re-weighting</p>
-        </div>
-        <div>
-          <img src="images/tables_and_graphs_datathon/option_b_vulnerability_filter.png" alt="Vulnerability filter — high-exposure, low-capacity countries"/>
-          <p class="img-caption">High-exposure, low-capacity country identification</p>
-        </div>
       </div>
+
+      <p style="margin-top:1.5rem;">
+        The ND-GAIN re-weighting shifts Sub-Saharan Africa and MENA countries significantly up
+        in risk rankings when reporting capacity is accounted for:
+        <strong>Syria ▲14, Sudan ▲24, Somalia ▲24</strong> positions. The standard fire-intensity
+        lens misclassifies the most vulnerable populations as low-risk because it mistakes
+        silence in the data for safety.
+      </p>
+      <img src="images/tables_and_graphs_datathon/plot_slope_risk_revision.png" alt="Risk score revision after ND-GAIN re-weighting" style="margin-top:1.25rem;"/>
+      <p class="img-caption">Risk rank shifts after ND-GAIN re-weighting</p>
     </section>
 
     <!-- Links -->
@@ -183,5 +177,23 @@
   </div>
 </footer>
 
+
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close">&times;</button>
+  <img id="lightbox-img" src="" alt=""/>
+</div>
+<script>
+(function() {
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightbox-img');
+  function open(src, alt) { lbImg.src = src; lbImg.alt = alt; lb.classList.add('active'); document.body.style.overflow = 'hidden'; }
+  function close() { lb.classList.remove('active'); document.body.style.overflow = ''; }
+  lb.addEventListener('click', function(e) { if (e.target === lb || e.target.id === 'lightbox-close') close(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close(); });
+  document.querySelectorAll('.detail-section img, .visuals-grid img').forEach(function(el) {
+    el.addEventListener('click', function() { open(el.src, el.alt); });
+  });
+})();
+</script>
 </body>
 </html>

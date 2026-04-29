@@ -166,5 +166,23 @@
   </div>
 </footer>
 
+
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close">&times;</button>
+  <img id="lightbox-img" src="" alt=""/>
+</div>
+<script>
+(function() {
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightbox-img');
+  function open(src, alt) { lbImg.src = src; lbImg.alt = alt; lb.classList.add('active'); document.body.style.overflow = 'hidden'; }
+  function close() { lb.classList.remove('active'); document.body.style.overflow = ''; }
+  lb.addEventListener('click', function(e) { if (e.target === lb || e.target.id === 'lightbox-close') close(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close(); });
+  document.querySelectorAll('.detail-section img, .visuals-grid img').forEach(function(el) {
+    el.addEventListener('click', function() { open(el.src, el.alt); });
+  });
+})();
+</script>
 </body>
 </html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FrostAlert: Agricultural Frost Risk Dashboard — Saliha Nur Gökçe</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="theme-climate">
+
+<!-- Navigation -->
+<nav class="detail-nav">
+  <a href="index.html#projects" class="back-link">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Back to Projects
+  </a>
+  <a href="index.html" class="detail-site-name">Saliha Nur Gökçe</a>
+</nav>
+
+<!-- Hero -->
+<section class="detail-hero">
+  <div class="container">
+    <span class="detail-label">Solo · DS4SDG Capstone · Live Deployment</span>
+    <h1 class="detail-title">FrostAlert: Agricultural Frost Risk Dashboard</h1>
+    <div class="detail-meta">
+      <div class="meta-item">
+        <span class="meta-key">Role</span>
+        <span class="meta-val">Solo — end-to-end build</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Context</span>
+        <span class="meta-val">DS4SDG capstone prototype</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Stack</span>
+        <span class="meta-val">Streamlit · Open-Meteo API · GeoPandas · Plotly</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Status</span>
+        <span class="meta-val">Live on Streamlit Community Cloud</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="detail-body">
+
+    <!-- Overview -->
+    <section class="detail-section">
+      <h2>Overview</h2>
+      <p>
+        FrostAlert is an interactive dashboard that lets users explore frost risk for Turkish
+        agricultural provinces using a combination of historical climate data and short-term
+        forecasts. It was built as an applied prototype for the Data Science for the
+        Sustainable Development Goals (DS4SDG) program, with the goal of turning agricultural
+        climate monitoring into something a non-technical user can interact with directly.
+      </p>
+    </section>
+
+    <!-- What It Does -->
+    <section class="detail-section">
+      <h2>What It Does</h2>
+      <ul>
+        <li>Province-level frost risk visualization across Türkiye</li>
+        <li>Historical context using ERA5-Land reanalysis data</li>
+        <li>Short-term forecast integration through the Open-Meteo API</li>
+        <li>Interactive filters for region, time window, and threshold sensitivity</li>
+      </ul>
+      <img src="images/frostalert/historical-map.png" alt="Historical frost exposure map across Turkish provinces" style="margin-top:1.25rem;"/>
+      <p class="img-caption">Historical exposure mode: 2014–2024 winter average frost risk across Turkish provinces.</p>
+      <img src="images/frostalert/simulation-map.png" alt="Interactive frost shock simulation map" style="margin-top:1.25rem;"/>
+      <p class="img-caption">Interactive simulation: the effect of a 5-day uniform frost shock, with risk recomputed by province.</p>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="detail-section">
+      <h2>Tech Stack</h2>
+      <ul>
+        <li><strong>Streamlit</strong> — the application layer</li>
+        <li><strong>Open-Meteo API</strong> — live forecast retrieval</li>
+        <li><strong>Pandas + GeoPandas</strong> — data wrangling</li>
+        <li><strong>Plotly</strong> — interactive maps and charts</li>
+        <li><strong>Streamlit Community Cloud</strong> — deployment</li>
+      </ul>
+    </section>
+
+    <!-- What This Demonstrates -->
+    <section class="detail-section">
+      <h2>What This Project Demonstrates</h2>
+      <p>
+        End-to-end ownership of a small application: data pipeline, API integration,
+        interactive frontend, and live deployment. The goal was less about producing new
+        research findings and more about practicing the full delivery cycle of a working data
+        product.
+      </p>
+    </section>
+
+    <!-- Links -->
+    <section class="detail-section">
+      <h2>Links</h2>
+      <div class="project-links">
+        <a href="https://frostalert-tr-1.streamlit.app/" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Live App ↗
+        </a>
+        <a href="https://github.com/saliha-nur-gokce/frostalert-tr" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub ↗
+        </a>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-name">Saliha Nur Gökçe</span>
+      <ul class="footer-links">
+        <li><a href="mailto:s.nurgkce@gmail.com">s.nurgkce@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/saliha-nur-gokce/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/saliha-nur-gokce" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+      <span class="footer-copy">© 2026</span>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close">&times;</button>
+  <img id="lightbox-img" src="" alt=""/>
+</div>
+<script>
+(function() {
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightbox-img');
+  function open(src, alt) { lbImg.src = src; lbImg.alt = alt; lb.classList.add('active'); document.body.style.overflow = 'hidden'; }
+  function close() { lb.classList.remove('active'); document.body.style.overflow = ''; }
+  lb.addEventListener('click', function(e) { if (e.target === lb || e.target.id === 'lightbox-close') close(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close(); });
+  document.querySelectorAll('.detail-section img, .visuals-grid img').forEach(function(el) {
+    el.addEventListener('click', function() { open(el.src, el.alt); });
+  });
+})();
+</script>
+</body>
+</html>

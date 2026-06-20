@@ -35,10 +35,11 @@
           <h1 class="hero-name">Saliha Nur Gökçe</h1>
           <p class="hero-title">MA Student · Computational Social Sciences</p>
           <p class="hero-bio">
-            I combine econometric methods and machine learning to study social and economic
-            systems — with a particular focus on climate shocks, financial NLP, and
-            displacement. Currently pursuing my MA in Computational Social Sciences at Koç
-            University, building on an Economics degree from Boğaziçi University.
+            I work with econometric methods, machine learning, and text-as-data to study
+            social and economic systems. Recent projects span climate-driven price shocks,
+            healthcare violence discourse, and urban earthquake risk. Currently completing my
+            MA in Computational Social Sciences at Koç University, building on an Economics
+            degree from Boğaziçi University.
           </p>
           <div class="social-links">
             <a href="https://www.linkedin.com/in/saliha-nur-gokce/" target="_blank" class="social-link">
@@ -91,26 +92,32 @@
           </div>
         </div>
 
-        <!-- Card 2: Climate Shocks & Agricultural Prices -->
+        <!-- Card 2: FrostAlert -->
         <div class="project-card" style="--card-accent: var(--accent-climate);">
-          <p class="card-role">Solo · CSSM 502 Advanced Data Analysis · Ongoing Thesis Work</p>
-          <h3 class="card-title">Climate Shocks &amp; Agricultural Prices</h3>
+          <p class="card-role">Solo · DS4SDG Capstone · Live Deployment</p>
+          <h3 class="card-title">FrostAlert: Agricultural Frost Risk Dashboard</h3>
           <p class="card-desc">
-            Hybrid pipeline integrating Gradient Boosting threshold detection with panel
-            fixed-effects regression to quantify how frost shocks propagate into Turkish
-            producer prices across 81 provinces (2014–2024). Key finding: a −2°C shock
-            raises perishable vegetable prices by 6.5% with a one-month lag.
+            An interactive Streamlit dashboard that combines historical ERA5-Land climate
+            data with Open-Meteo forecast API calls to surface frost risk for Turkish
+            agricultural provinces. Built end-to-end, from data pipeline to deployed
+            application, as a tool for early-warning experimentation in agricultural climate
+            monitoring.
           </p>
           <div class="card-tags">
-            <span class="tag" style="background:var(--accent-climate-tint);color:var(--accent-climate-text);">Panel Fixed Effects</span>
-            <span class="tag" style="background:var(--accent-climate-tint);color:var(--accent-climate-text);">Gradient Boosting</span>
-            <span class="tag" style="background:var(--accent-climate-tint);color:var(--accent-climate-text);">Python</span>
+            <span class="tag" style="background:var(--accent-climate-tint);color:var(--accent-climate-text);">Streamlit</span>
             <span class="tag" style="background:var(--accent-climate-tint);color:var(--accent-climate-text);">Open-Meteo API</span>
-            <span class="tag" style="background:var(--accent-climate-tint);color:var(--accent-climate-text);">TÜİK Data</span>
-            <span class="tag" style="background:var(--accent-climate-tint);color:var(--accent-climate-text);">Climate Econometrics</span>
+            <span class="tag" style="background:var(--accent-climate-tint);color:var(--accent-climate-text);">ERA5-Land</span>
+            <span class="tag" style="background:var(--accent-climate-tint);color:var(--accent-climate-text);">Python</span>
+            <span class="tag" style="background:var(--accent-climate-tint);color:var(--accent-climate-text);">Pandas</span>
+            <span class="tag" style="background:var(--accent-climate-tint);color:var(--accent-climate-text);">Geospatial</span>
+            <span class="tag" style="background:var(--accent-climate-tint);color:var(--accent-climate-text);">Live Deployment</span>
           </div>
           <div class="card-actions">
-            <a href="agricultural-climate.html" class="card-link">View Details →</a>
+            <a href="frostalert.html" class="card-link">View Details →</a>
+            <a href="https://frostalert-tr-1.streamlit.app/" target="_blank" rel="noopener noreferrer" class="card-link-ext">
+              Live App
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
           </div>
         </div>
 
@@ -143,27 +150,37 @@
           </div>
         </div>
 
-        <!-- Card 4: US GDP Forecasting -->
-        <div class="project-card" style="--card-accent: var(--accent-gdp);">
-          <p class="card-role">Team of 3 · ML Course Project<br>Saliha Nur Gökçe · Kemal Arda Elaman · Eda Bayrak</p>
-          <h3 class="card-title">Forecasting US GDP Growth</h3>
+        <!-- Card 4: Media Attention & Specialty Choice (TUS) -->
+        <div class="project-card" style="--card-accent: var(--accent-tus);">
+          <p class="card-role">Solo · Graduate Research · Preprint on Zenodo</p>
+          <h3 class="card-title">Media Attention &amp; Specialty Choice</h3>
           <p class="card-desc">
-            Benchmarked tree-based machine learning models (Random Forest, Gradient
-            Boosting) against autoregressive baselines for US GDP growth forecasting.
-            Applied PCA for dimensionality reduction on macroeconomic feature sets from
-            FRED data (1970–2020). Gradient Boosting achieved the best test MSE (0.113
-            vs. AR(4) baseline of 0.157).
+            An NLP and panel-econometrics study testing whether the intensity of healthcare
+            violence coverage in Turkish media and online discourse correlates with shifts in
+            medical specialty preferences across 40 TUS branches from 2013 to 2025. Built a
+            multi-stage annotation pipeline combining keyword scoring, two-annotator human
+            labeling, and LLM-based corpus extension, validated against official White Code
+            incident records.
           </p>
           <div class="card-tags">
-            <span class="tag" style="background:var(--accent-gdp-tint);color:var(--accent-gdp-text);">Random Forest</span>
-            <span class="tag" style="background:var(--accent-gdp-tint);color:var(--accent-gdp-text);">Gradient Boosting</span>
-            <span class="tag" style="background:var(--accent-gdp-tint);color:var(--accent-gdp-text);">PCA</span>
-            <span class="tag" style="background:var(--accent-gdp-tint);color:var(--accent-gdp-text);">Python</span>
-            <span class="tag" style="background:var(--accent-gdp-tint);color:var(--accent-gdp-text);">Scikit-learn</span>
-            <span class="tag" style="background:var(--accent-gdp-tint);color:var(--accent-gdp-text);">Time Series</span>
+            <span class="tag" style="background:var(--accent-tus-tint);color:var(--accent-tus-text);">NLP</span>
+            <span class="tag" style="background:var(--accent-tus-tint);color:var(--accent-tus-text);">Text-as-Data</span>
+            <span class="tag" style="background:var(--accent-tus-tint);color:var(--accent-tus-text);">LLM Annotation</span>
+            <span class="tag" style="background:var(--accent-tus-tint);color:var(--accent-tus-text);">Panel Regression</span>
+            <span class="tag" style="background:var(--accent-tus-tint);color:var(--accent-tus-text);">Spearman Correlation</span>
+            <span class="tag" style="background:var(--accent-tus-tint);color:var(--accent-tus-text);">Python</span>
+            <span class="tag" style="background:var(--accent-tus-tint);color:var(--accent-tus-text);">Turkish</span>
           </div>
           <div class="card-actions">
-            <a href="mlproject-details.html" class="card-link">View Details →</a>
+            <a href="tus-violence.html" class="card-link">View Details →</a>
+            <a href="https://zenodo.org/records/20667817" target="_blank" rel="noopener noreferrer" class="card-link-ext">
+              Preprint
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+            <a href="https://github.com/saliha-nur-gokce/tus-violence-media" target="_blank" rel="noopener noreferrer" class="card-link-ext">
+              GitHub
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
           </div>
         </div>
 
@@ -189,25 +206,29 @@
           </div>
         </div>
 
-        <!-- Card 6: Global Development Patterns -->
-        <div class="project-card" style="--card-accent: var(--accent-clustering);">
-          <p class="card-role">Solo · R Course Project</p>
-          <h3 class="card-title">Global Development Patterns</h3>
+        <!-- Card 6: Multi-Layered Seismic Vulnerability -->
+        <div class="project-card" style="--card-accent: var(--accent-seismic);">
+          <p class="card-role">Team of 2 · Graduate Research · Under preparation for submission</p>
+          <h3 class="card-title">Multi-Layered Seismic Vulnerability of Urban Road Networks</h3>
           <p class="card-desc">
-            Clustering and regression analysis on global development and environmental
-            sustainability indicators using R. Identified four distinct country groupings
-            via K-Means (k=4) on World Bank data (1990–2023) and tested relationships
-            between development stage and SDG-related outcomes.
+            A network-science framework for four high-risk districts of western Istanbul that
+            integrates physical road fragility, expected earthquake loss, and socio-demographic
+            vulnerability under a Mw 7.5 scenario. Uses OSMnx-derived road graphs (1,449 nodes,
+            2,248 edges) and 1,000-iteration Monte Carlo simulation to show that topologically
+            critical edges and structurally vulnerable edges are essentially independent sets.
           </p>
           <div class="card-tags">
-            <span class="tag" style="background:var(--accent-clustering-tint);color:var(--accent-clustering-text);">R</span>
-            <span class="tag" style="background:var(--accent-clustering-tint);color:var(--accent-clustering-text);">K-Means</span>
-            <span class="tag" style="background:var(--accent-clustering-tint);color:var(--accent-clustering-text);">Regression</span>
-            <span class="tag" style="background:var(--accent-clustering-tint);color:var(--accent-clustering-text);">ggplot2</span>
-            <span class="tag" style="background:var(--accent-clustering-tint);color:var(--accent-clustering-text);">World Bank Data</span>
+            <span class="tag" style="background:var(--accent-seismic-tint);color:var(--accent-seismic-text);">Network Analysis</span>
+            <span class="tag" style="background:var(--accent-seismic-tint);color:var(--accent-seismic-text);">OSMnx</span>
+            <span class="tag" style="background:var(--accent-seismic-tint);color:var(--accent-seismic-text);">Monte Carlo</span>
+            <span class="tag" style="background:var(--accent-seismic-tint);color:var(--accent-seismic-text);">Louvain</span>
+            <span class="tag" style="background:var(--accent-seismic-tint);color:var(--accent-seismic-text);">Girvan-Newman</span>
+            <span class="tag" style="background:var(--accent-seismic-tint);color:var(--accent-seismic-text);">Python</span>
+            <span class="tag" style="background:var(--accent-seismic-tint);color:var(--accent-seismic-text);">GIS</span>
+            <span class="tag" style="background:var(--accent-seismic-tint);color:var(--accent-seismic-text);">Spatial Statistics</span>
           </div>
           <div class="card-actions">
-            <a href="project-details.html" class="card-link">View Details →</a>
+            <a href="seismic-vulnerability.html" class="card-link">View Details →</a>
           </div>
         </div>
 

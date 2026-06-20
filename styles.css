@@ -13,32 +13,32 @@
   --accent-llm:        #C9B8E8;
   --accent-climate:    #B8D8C4;
   --accent-wildfire:   #F0C4A8;
-  --accent-gdp:        #B8D0E8;
+  --accent-seismic:    #B8D0E8;
   --accent-sql:        #E8D8A0;
-  --accent-clustering: #D4C4B8;
+  --accent-tus:        #D4C4B8;
 
   --accent-llm-tint:        #EDE8F7;
   --accent-climate-tint:    #E3EFE8;
   --accent-wildfire-tint:   #FCEEE5;
-  --accent-gdp-tint:        #E3EEF7;
+  --accent-seismic-tint:    #E3EEF7;
   --accent-sql-tint:        #F5EED4;
-  --accent-clustering-tint: #EDE4DD;
+  --accent-tus-tint:        #EDE4DD;
 
   --accent-llm-text:        #5A4878;
   --accent-climate-text:    #2E5C40;
   --accent-wildfire-text:   #7A3E20;
-  --accent-gdp-text:        #1E4068;
+  --accent-seismic-text:    #1E4068;
   --accent-sql-text:        #5A4A18;
-  --accent-clustering-text: #5A4036;
+  --accent-tus-text:        #5A4036;
 }
 
 /* Per-page accent theme (applied as class on <body> in detail pages) */
 .theme-llm        { --page-accent: var(--accent-llm);        --page-tint: var(--accent-llm-tint);        --page-text-accent: var(--accent-llm-text); }
 .theme-climate    { --page-accent: var(--accent-climate);    --page-tint: var(--accent-climate-tint);    --page-text-accent: var(--accent-climate-text); }
 .theme-wildfire   { --page-accent: var(--accent-wildfire);   --page-tint: var(--accent-wildfire-tint);   --page-text-accent: var(--accent-wildfire-text); }
-.theme-gdp        { --page-accent: var(--accent-gdp);        --page-tint: var(--accent-gdp-tint);        --page-text-accent: var(--accent-gdp-text); }
+.theme-seismic    { --page-accent: var(--accent-seismic);    --page-tint: var(--accent-seismic-tint);    --page-text-accent: var(--accent-seismic-text); }
 .theme-sql        { --page-accent: var(--accent-sql);        --page-tint: var(--accent-sql-tint);        --page-text-accent: var(--accent-sql-text); }
-.theme-clustering { --page-accent: var(--accent-clustering); --page-tint: var(--accent-clustering-tint); --page-text-accent: var(--accent-clustering-text); }
+.theme-tus        { --page-accent: var(--accent-tus);        --page-tint: var(--accent-tus-tint);        --page-text-accent: var(--accent-tus-text); }
 
 /* ─── Reset ────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

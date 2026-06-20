@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Media Attention and Specialty Choice — Saliha Nur Gökçe</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="theme-tus">
+
+<!-- Navigation -->
+<nav class="detail-nav">
+  <a href="index.html#projects" class="back-link">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Back to Projects
+  </a>
+  <a href="index.html" class="detail-site-name">Saliha Nur Gökçe</a>
+</nav>
+
+<!-- Hero -->
+<section class="detail-hero">
+  <div class="container">
+    <span class="detail-label">Solo · Graduate Research Project · Preprint on Zenodo</span>
+    <h1 class="detail-title">Media Attention and Specialty Choice: Evidence from Healthcare Violence Coverage in Türkiye</h1>
+    <div class="detail-meta">
+      <div class="meta-item">
+        <span class="meta-key">Role</span>
+        <span class="meta-val">Solo — design, data, analysis</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Coverage</span>
+        <span class="meta-val">40 branches · 26 exam periods · 2013–2025</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Methods</span>
+        <span class="meta-val">NLP · LLM annotation · Panel OLS · Spearman</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Tools</span>
+        <span class="meta-val">Python · pdfplumber · statsmodels · linearmodels · Claude Haiku</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="detail-body">
+
+    <!-- Overview -->
+    <section class="detail-section">
+      <h2>Overview</h2>
+      <p>
+        Tests whether media intensity around healthcare violence in Türkiye correlates with
+        revealed shifts in medical specialty preferences, measured through branch-level minimum
+        scores on the Turkish Medical Specialization Examination (TUS) from 2013 to 2025.
+        Branches are classified by exposure to patient contact (high / intermediate / low)
+        following the Dorsey et al. (2003) controllable lifestyle framework.
+      </p>
+      <p>
+        The central finding is group-specific: media intensity is negatively associated with
+        minimum scores in high- and intermediate-exposure branches, while low-exposure branches
+        show no such pattern — consistent with a violence-specific deterrence signal rather than
+        a general decline in TUS competitiveness.
+      </p>
+    </section>
+
+    <!-- Data -->
+    <section class="detail-section">
+      <h2>Data</h2>
+      <ul>
+        <li><strong>Outcome:</strong> branch-level minimum TUS scores across 40 specialty branches × 26 exam periods (2013–2025); 46,808 branch-period observations after filtering. Extracted from official ÖSYM PDF publications using a pdfplumber-based parser.</li>
+        <li><strong>Treatment D1 (media intensity):</strong> annual Google News article counts on five Turkish-language healthcare violence keywords, validated against official Beyaz Kod (White Code) incident notifications (Spearman r = 0.786, p = 0.036 over seven overlapping years).</li>
+        <li><strong>Treatment D2 (discourse intensity):</strong> annual proportion of violence-flagged entries from a purposively constructed Ekşi Sözlük corpus (4,148 entries across 54 threads).</li>
+      </ul>
+    </section>
+
+    <!-- Methods -->
+    <section class="detail-section">
+      <h2>Methods</h2>
+      <ul>
+        <li><strong>Multi-stage annotation pipeline:</strong> failed unsupervised topic modeling (LDA, BERTopic) → keyword scoring → two-annotator human labeling on 200 entries (Cohen's κ = 0.59 for physical violence) → few-shot LLM extension to the remaining 3,948 entries using Claude Haiku, validated against the human-labeled subset (κ = 0.54 against union ground truth).</li>
+        <li><strong>Spearman rank correlations</strong> between each treatment and the group-year mean of minimum scores.</li>
+        <li><strong>Year-level OLS</strong> with exposure-group interaction terms, controlling for time trends in two specifications (quadratic polynomial and year fixed effects).</li>
+        <li><strong>Branch-level panel OLS</strong> with branch fixed effects, log(quota) control, and entity-clustered standard errors (46,808 observations).</li>
+        <li><strong>Leave-one-out sensitivity analysis</strong> across all 13 years to verify that no single year drives the interaction findings.</li>
+      </ul>
+    </section>
+
+    <!-- Key Findings -->
+    <section class="detail-section">
+      <h2>Key Findings</h2>
+
+      <div class="findings-grid">
+        <div class="finding-card">
+          <p class="finding-stat">−0.965</p>
+          <p class="finding-desc">D1 × high-exposure interaction (p = 0.002); Spearman r = −0.908 (p &lt; 0.001)</p>
+        </div>
+        <div class="finding-card">
+          <p class="finding-stat">−0.849</p>
+          <p class="finding-desc">D1 × intermediate-exposure interaction (p = 0.005); Spearman r = −0.724 (p = 0.005)</p>
+        </div>
+        <div class="finding-card">
+          <p class="finding-stat">+0.303</p>
+          <p class="finding-desc">Low-exposure Spearman r (p = 0.315) — positive and non-significant, matching the falsification expectation</p>
+        </div>
+        <div class="finding-card">
+          <p class="finding-stat">13 / 13</p>
+          <p class="finding-desc">Leave-one-out iterations in which interaction terms stay significant at the 1% level</p>
+        </div>
+      </div>
+
+      <p style="margin-top:1.5rem;">
+        Interaction terms are identical across quadratic and year-dummy trend controls. Results
+        are reported as correlational; no causal claim is made.
+      </p>
+      <img src="images/tus/parallel-trends.png" alt="Mean minimum TUS scores by exposure group, 2013–2025" style="margin-top:1.25rem;"/>
+      <p class="img-caption">Mean minimum TUS scores by exposure group (2013–2025). High- and intermediate-exposure branches decline after 2022 while low-exposure branches rise.</p>
+    </section>
+
+    <!-- What This Demonstrates -->
+    <section class="detail-section">
+      <h2>What This Project Demonstrates</h2>
+      <p>
+        An end-to-end text-as-data pipeline with explicit annotation quality reporting, applied
+        to a substantively meaningful labor-economics question. Combines NLP (annotation, LLM
+        extension, validation), econometric design (interaction terms, panel fixed effects,
+        sensitivity analysis), and a careful framing that does not overstate what the data can
+        identify.
+      </p>
+    </section>
+
+    <!-- Links -->
+    <section class="detail-section">
+      <h2>Links</h2>
+      <div class="project-links">
+        <a href="https://zenodo.org/records/20667817" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Preprint (Zenodo) ↗
+        </a>
+        <a href="https://github.com/saliha-nur-gokce/tus-violence-media" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub Repo ↗
+        </a>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-name">Saliha Nur Gökçe</span>
+      <ul class="footer-links">
+        <li><a href="mailto:s.nurgkce@gmail.com">s.nurgkce@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/saliha-nur-gokce/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/saliha-nur-gokce" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+      <span class="footer-copy">© 2026</span>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close">&times;</button>
+  <img id="lightbox-img" src="" alt=""/>
+</div>
+<script>
+(function() {
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightbox-img');
+  function open(src, alt) { lbImg.src = src; lbImg.alt = alt; lb.classList.add('active'); document.body.style.overflow = 'hidden'; }
+  function close() { lb.classList.remove('active'); document.body.style.overflow = ''; }
+  lb.addEventListener('click', function(e) { if (e.target === lb || e.target.id === 'lightbox-close') close(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close(); });
+  document.querySelectorAll('.detail-section img, .visuals-grid img').forEach(function(el) {
+    el.addEventListener('click', function() { open(el.src, el.alt); });
+  });
+})();
+</script>
+</body>
+</html>
